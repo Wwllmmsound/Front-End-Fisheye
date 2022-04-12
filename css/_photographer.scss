@@ -1,0 +1,188 @@
+@import './variables';
+
+#contact_modal {
+    display: none;
+}
+
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+}
+
+.contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $primary-color;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal {
+    border-radius: 5px;
+    background-color: $tertiary-color;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+    header {
+        justify-content: space-between;
+        width: 100%;
+        img {
+            cursor: pointer;
+        }
+        h2 {
+            font-size: 64px;
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    label {
+        color: #312E2E;
+        font-size: 36px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: self-start;
+        margin-bottom: 26px;
+    }
+    input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 5px;
+    }
+}
+
+.photograph-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    .profile_info{
+
+        .profile_name{
+            font-size: 70px;
+            font-weight: 500;
+            margin: 0;
+            color: $secondary-color;
+        }
+        .profile_origine{
+            color: $primary-color;
+            font-weight: 500;
+        }
+    }
+    img {
+        height: 200px;
+        width: 200px;
+    }
+}
+main{
+    margin: 20px 100px;
+
+    .preferences{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 240px;
+
+        .orderBy{
+            font-size: 16px;
+            font-weight:500;
+            color: white;
+            padding: 11px;
+            padding-right: 20px;
+            width: 150px;
+            height: 50px;
+            border: none;
+            background-color: $primary-color;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+            option{
+                padding: 11px;
+                padding-right: 20px;
+                width: 150px;
+                height: 50px;
+                border-bottom: #FAFAFA;
+            }
+        }
+    }
+
+    .photos-list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10%;
+        justify-content: space-between;
+        padding: 0;
+        figure{
+            margin: 20px 0;
+            img{
+                width: 100%;
+                height: 250px;
+                margin-bottom: 10px;
+                object-fit: cover;
+                margin: 10 100px;
+                border-radius: 8px;
+            }
+            .photo-info{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: -5px;
+                height: 20px;
+                .photo-title{
+                    color: $primary-color;
+                }
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 40px;
+                    i{
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hourly-price{
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 260px;
+    height: 20px;
+    background-color: $tertiary-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px 5px 0 0;
+    font-weight: 700;
+    .total-like{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100px;
+    }
+}

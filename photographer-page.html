@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <title>Fisheye</title>
+  </head>
+  <body>
+    <header>
+        <a href="index.html" class="logo"><img src="assets/images/logo.png" /></a>
+    </header>
+      <aside class="photograph-header">
+          <div class="profile_info">
+              <h1 class="profile_name">Name</h1>
+              <h3 class="profile_origine">Localisation</h3>
+              <p class="profile_slogan">Slogan</p>
+          </div>
+          <div class="photograph-header">
+               <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          </div>
+          <img src="./assets/photographers/account.png" alt="photographer profile image" id="photographerProfilPic">
+      </aside>
+      <main>
+        <div class="preferences" alt="Trier les photos">
+          <label for="orderBy">Trier par</label>
+          <select name="orderBy" id="orderBy" class="orderBy">
+              <option value="popular">Popularité</option>
+              <option value="date">Date</option>
+              <option value="title">Titre</option>
+          </select>
+        </div>
+        <section class="photos-list">
+          <figure>
+              <img src="./darkCityPixel.jpg" alt="img definiton">
+              <figcaption class="photo-info">
+                <p class="photo-title">Titre de la photo</p>
+                <div>
+                    <p id="numbOfLike">0</p>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./darkCityPixel.jpg" alt="img definiton">
+            <figcaption class="photo-info">
+                <p class="photo-title">Titre de la photo</p>
+                <div>
+                    <p id="numbOfLike">0</p>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./darkCityPixel.jpg" alt="img definiton">
+            <figcaption class="photo-info">
+              <p class="photo-title">Titre de la photo</p>
+              <div>
+                  <p id="numbOfLike">0</p>
+                  <i class="fas fa-heart"></i>
+              </div>
+            </figcaption>
+          </figure>
+          <figure>
+          <img src="./darkCityPixel.jpg" alt="img definiton">
+            <figcaption class="photo-info">
+              <p class="photo-title">Titre de la photo</p>
+              <div>
+                  <p id="numbOfLike">0</p>
+                  <i class="fas fa-heart"></i>
+              </div>
+            </figcaption>
+          </figure>
+        </section> 
+    </main>
+<!-- ____________________________________daily price_________________________________ -->
+
+    <div class="hourly-price"
+         alt="Nombre de like et prix par heures">
+        <div class="total-like">
+            <p id="totalOfLike">000 000</p>
+            <i class="fas fa-heart"></i>
+        </div>
+        <p><span id="dailyPrice"></span>€ /jour</p>
+    </div>
+
+
+<!-- ____________________________________________message modal_______________________________________ -->
+    <div class="bground">
+        <div id="contact_modal">
+			<div class="modal">
+                <header>
+                    <h2>Contactez-moi</h2>
+                    <img src="assets/icons/close.svg" onclick="closeModal()" />
+                </header>
+            <form
+              name="reserve"
+              action="index.html"
+              method="get"
+             
+              onsubmit="sendMessage();"
+            >
+              <div
+                class="formData">
+                <label for="first">Prénom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                />
+                <br>
+                <div id="required_first" class="required-msg"></div>
+                <br>
+              </div>
+              <div
+                class="formData">
+                <label for="last">Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                />
+                <br>
+                <div id="required_last" class="required-msg"></div>
+                <br>
+              </div>
+              <div
+                class="formData">
+                <label for="email">E-mail</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="email"
+                  name="email"
+                />
+                <br>
+                <div id="required_email" class="required-msg"></div>
+                <br>
+              </div>
+              <div
+                class="formData">
+                <label for="message">Votre message</label><br>
+                <textarea 
+                    name="message" 
+                    id="message" 
+                    cols="30" 
+                    rows="10"></textarea>
+                <br>
+                <div id="required_email" class="required-msg"></div>
+                <br>
+              </div>
+              <button class="contact_button">Envoyer</button>
+              <div class="valid-form" id="modal-thanks">
+                <h2>Merci pour <br> votre inscription</h2>
+                <button class="btn-submit" id="close-modal">Fermer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/factories/Photographer.js"></script>
+    <script src="scripts/pages/index.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+  </body>
+</html>
