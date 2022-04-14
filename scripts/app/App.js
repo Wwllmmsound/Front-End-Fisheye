@@ -1,10 +1,10 @@
 class App {
     constructor() {
         this.photographers = document.querySelector('#photographers')
-        this.photographersApi = new photographerApi('./../data/photographers.json')
+        this.photographersApi = new photographerApi('../data/photographers.json')
     };
 
-    async main() {
+    async main(){
         const photographersData = await this.photographersApi.getPhotographer();
 
         photographersData
@@ -12,9 +12,9 @@ class App {
             .forEach(profile => {
                 const template = new photographerProfile(profile);
                 this.photographers.appendChild(template.photographerTemplate())
-            }
-    }
-}
+            })
+    };
+};
 const app = new App()
 app.main()
 
