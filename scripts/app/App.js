@@ -1,7 +1,7 @@
 class App {
     constructor() {
         this.photographers = document.querySelector('#photographers')
-        this.photographersApi = new photographerApi('../data/photographers.json')
+        this.photographersApi = new photographerApi('./data/photographers.json')
     };
 
     async main(){
@@ -16,8 +16,6 @@ class App {
     };
 };
 const app = new App()
-app.main()
+app.main();
 
-
-
-photographerTemplate();
+photographerTemplate;
