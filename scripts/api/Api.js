@@ -11,7 +11,7 @@ class Api {
     }
 }
 
-class photographerApi extends Api {
+class PhotographerApi extends Api {
     constructor(url) {
         super(url)
     }

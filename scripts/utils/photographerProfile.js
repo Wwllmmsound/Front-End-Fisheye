@@ -1,9 +1,9 @@
-class photographerProfile {
+class PhotographerProfile {
     constructor(photographer){
         this._photographer = photographer
     }
 
-    createPhotographProfile(){
+    createPhotographProfile(photographer){
         const photographers = document.getElementById("photographers");
 
         const photographerCard = `

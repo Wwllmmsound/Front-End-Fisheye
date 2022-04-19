@@ -16,14 +16,14 @@ function photographerFactory(data) {
     return { name, picture, getUserCardDOM }
 }
 
-function photographerTemplate(value){
+function photographerTemplate(){
     return  `
-    <a href="./${value.name}.html" alt="Photographer Page">
-      <img src="${value.portrait}" alt="${value.name} profile image" class="photographer_profileImg">
-      <h2 class="${value.name}">Name</h2>
+    <a href="./${this.name}.html" alt="Photographer Page">
+      <img src="${this.portrait}" alt="${this.name} profile image" class="photographer_profileImg">
+      <h2>${this.name}</h2>
     </a>
-    <p class="photographer_origine">${value.city}, ${value.country}</p>
-    <p class="photographer_slogan">${value.tagline}</p>
-    <p class="photographer_price">${value.price}€/jours</p>
+    <p class="photographer_origine">${this.city}, ${this.country}</p>
+    <p class="photographer_slogan">${this.tagline}</p>
+    <p class="photographer_price">${this.price}€/jours</p>
 `
 }
