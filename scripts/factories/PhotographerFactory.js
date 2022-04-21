@@ -1,11 +1,11 @@
 class PhotographerFactory {
-    constructor(name, city, country, tagline, price, portrait) {
+    constructor(name, portrait, city, country, tagline, price) {
         this._name = name
+        this._portrait = portrait
+        this._tagline = tagline
         this._city = city
         this._country = country
-        this._tagline = tagline
         this._price = price
-        this._portrait = portrait
     }
 
     get name(){
@@ -29,14 +29,14 @@ class PhotographerFactory {
     }
 
     get portrait(){
-        return this._portrait
+        return `assets/photographers/profil/${this._portrait}`
     }
 
     photographerTemplate(){
         const article = document.createElement("article");
         const photographerCard = `
         <a href="./${this._name}.html" alt="Photographer Page">
-          <img src="${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
+          <img src="../assets/photographers/profil/${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
         </a>
         <p class="photographer_origine">${this._city}, ${this._country}</p>
@@ -47,4 +47,6 @@ class PhotographerFactory {
 
         return article;
     }
-}
+};
+
+export { PhotographerFactory };

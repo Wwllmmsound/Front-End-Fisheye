@@ -21,4 +21,6 @@ class PhotographerApi extends Api {
         return await this.get();
         
     }
-}
+};
+
+export { PhotographerApi };

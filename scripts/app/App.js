@@ -1,7 +1,10 @@
+import { PhotographerApi } from '../api/Api.js'
+import { PhotographerFactory } from '../factories/PhotographerFactory.js'
+
 class App {
     constructor() {
         this.photographers = document.querySelector('#photographers')
-        this.photographersApi = new PhotographerApi('./data/photographers.json')
+        this.photographersApi = new PhotographerApi('../data/photographers.json')
     };
 
     async main(){
@@ -16,8 +19,8 @@ class App {
                     photographer.portrait,
                     photographer.city,
                     photographer.country,
-                    photographer.price,
-                    photographer.tagline
+                    photographer.tagline,
+                    photographer.price
                 );
 
                 const photographerTemplate = template.photographerTemplate();

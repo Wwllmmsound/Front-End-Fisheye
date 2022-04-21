@@ -343,19 +343,35 @@ h1 {
 
 .photographer_section article a h2 {
   color: #D3573C;
-  font-size: 36px;
+  font-size: 30px;
   margin-bottom: 0;
 }
 
 .photographer_section article a img {
   height: 200px;
   width: 200px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.photographer_section article .photographer_origine {
+  color: #901C1C;
+}
+
+.photographer_section article .photographer_slogan {
+  font-weight: 700;
+}
+
+.photographer_section article .photographer_price {
+  color: grey;
 }
 
 .photographer_section article p {
   margin-top: 0;
   padding-top: 0;
   margin-bottom: 4px;
+  font-size: 14px;
 }
 
 .hashtag-select .hashtag {
