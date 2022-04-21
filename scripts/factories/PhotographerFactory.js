@@ -1,11 +1,11 @@
-class PhotographerList {
-    constructor(profile) {
-        this._name = profile.name
-        this._city = profile.city
-        this._country = profile.country
-        this._tagline = profile.tagline
-        this._price = profile.price
-        this._portrait = profile.portrait
+class PhotographerFactory {
+    constructor(name, city, country, tagline, price, portrait) {
+        this._name = name
+        this._city = city
+        this._country = country
+        this._tagline = tagline
+        this._price = price
+        this._portrait = portrait
     }
 
     get name(){
@@ -33,7 +33,8 @@ class PhotographerList {
     }
 
     photographerTemplate(){
-        return  `
+        const article = document.createElement("article");
+        const photographerCard = `
         <a href="./${this._name}.html" alt="Photographer Page">
           <img src="${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
@@ -41,8 +42,9 @@ class PhotographerList {
         <p class="photographer_origine">${this._city}, ${this._country}</p>
         <p class="photographer_slogan">${this._tagline}</p>
         <p class="photographer_price">${this._price}€/jours</p>
-    `
+    `;
+        article.innerHTML = photographerCard;
+
+        return article;
     }
 }
-
-export { PhotographerList };

@@ -6,7 +6,7 @@ class Api {
     async get() {
         return fetch(this._url)
             .then(res => res.json())
-            .then(res => res.data)
+            .then(res => res.photographers)
             .catch(err => console.log('an error occurs', err))
     }
 }
@@ -17,6 +17,8 @@ class PhotographerApi extends Api {
     }
 
     async getPhotographer() {
-        return await this.get()
+        console.log('Donnée récupéré');
+        return await this.get();
+        
     }
 }

@@ -1,5 +1,3 @@
-import { PhotographerList } from '../factories/photographerList';
-
 class App {
     constructor() {
         this.photographers = document.querySelector('#photographers')
@@ -10,21 +8,23 @@ class App {
         const photographersData = await this.photographersApi.getPhotographer();
     };
 
-    async displayPhotographers(photographers){
-
-        photographers.forEach((photographers)=>{
-                const template = new photographerList(
-                    photographers.id,
-                    photographers.name,
-                    photographers.portrait,
-                    photographers.city,
-                    photographers.country,
-                    photographers.price,
-                    photographers.tagline
+    async displayPhotographers(photographer){
+        console.log(this.photographers);
+        photographer.forEach((photographer)=>{
+                const template = new PhotographerFactory(
+                    photographer.name,
+                    photographer.portrait,
+                    photographer.city,
+                    photographer.country,
+                    photographer.price,
+                    photographer.tagline
                 );
-                this.photographers.appendChild(template.photographerTemplate());
 
-                console.log(template);
+                const photographerTemplate = template.photographerTemplate();
+                const photographerSection = document.querySelector(".photographer_section");
+                
+                photographerSection.appendChild(photographerTemplate);
+
             });
     };
     async init() {
