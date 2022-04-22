@@ -1,5 +1,6 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerFactory } from '../factories/PhotographerFactory.js'
+import { PhotographerPage } from '../factories/PhotographerPage.js'
 
 class App {
     constructor() {
@@ -14,13 +15,14 @@ class App {
     async displayPhotographers(photographer){
         console.log(this.photographers);
         photographer.forEach((photographer)=>{
-                const template = new PhotographerFactory(
+                const template = new PhotographerPage(
                     photographer.name,
                     photographer.portrait,
                     photographer.city,
                     photographer.country,
                     photographer.tagline,
-                    photographer.price
+                    photographer.price,
+                    photographer.id
                 );
 
                 const photographerTemplate = template.photographerTemplate();

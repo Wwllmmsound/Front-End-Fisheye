@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -10,18 +10,22 @@
   </head>
   <body>
     <header>
-        <a href="index.html" class="logo"><img src="assets/images/logo.png" /></a>
+        <a href="index.html" class="logo"><img src="../assets/images/logo.png" /></a>
     </header>
-      <aside class="photograph-header">
-          <div class="profile_info">
-              <h1 class="profile_name">Name</h1>
-              <h3 class="profile_origine">Localisation</h3>
-              <p class="profile_slogan">Slogan</p>
-          </div>
+      <aside class="photograph-header" id="photographerHeader">
+          <!-- <div class="profile_info">
+
+
+
+          </div> -->
           <div class="photograph-header">
                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
           </div>
-          <img src="./assets/photographers/account.png" alt="photographer profile image" id="photographerProfilPic">
+          <div id="photographerProfilPic">
+
+
+          </div>
+          
       </aside>
       <main>
         <div class="preferences" alt="Trier les photos">
@@ -32,7 +36,7 @@
               <option value="title">Titre</option>
           </select>
         </div>
-        <section class="photos-list">
+        <section class="photos-list" id="photosList">
           <figure>
               <img src="./darkCityPixel.jpg" alt="img definiton">
               <figcaption class="photo-info">
@@ -41,36 +45,6 @@
                     <p id="numbOfLike">0</p>
                     <i class="fas fa-heart"></i>
                 </div>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="./darkCityPixel.jpg" alt="img definiton">
-            <figcaption class="photo-info">
-                <p class="photo-title">Titre de la photo</p>
-                <div>
-                    <p id="numbOfLike">0</p>
-                    <i class="fas fa-heart"></i>
-                </div>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="./darkCityPixel.jpg" alt="img definiton">
-            <figcaption class="photo-info">
-              <p class="photo-title">Titre de la photo</p>
-              <div>
-                  <p id="numbOfLike">0</p>
-                  <i class="fas fa-heart"></i>
-              </div>
-            </figcaption>
-          </figure>
-          <figure>
-          <img src="./darkCityPixel.jpg" alt="img definiton">
-            <figcaption class="photo-info">
-              <p class="photo-title">Titre de la photo</p>
-              <div>
-                  <p id="numbOfLike">0</p>
-                  <i class="fas fa-heart"></i>
-              </div>
             </figcaption>
           </figure>
         </section> 
