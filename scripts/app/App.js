@@ -1,5 +1,5 @@
 import { PhotographerApi } from '../api/Api.js'
-import { PhotographerFactory } from '../factories/PhotographerFactory.js'
+import { PhotographerModel } from '../models/PhotographerModel.js'
 import { PhotographerPage } from '../factories/PhotographerPage.js'
 
 class App {

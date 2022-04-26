@@ -1,6 +1,6 @@
-import { PhotographerFactory } from './PhotographerFactory.js'
+import { PhotographerModel } from '../models/PhotographerModel.js'
 
-class PhotographerPage extends PhotographerFactory{
+class PhotographerPage extends PhotographerModel{
     constructor(name, portrait, city, country, tagline, price, id){
         super(name, portrait, city, country, tagline, price, id)
     }

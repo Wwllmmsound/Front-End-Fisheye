@@ -1,4 +1,4 @@
-class PhotographerFactory {
+class PhotographerModel {
     constructor(name, portrait, city, country, tagline, price, id) {
         this._name = name
         this._portrait = portrait
@@ -48,4 +48,4 @@ class PhotographerFactory {
 };
 
 
-export { PhotographerFactory };
+export { PhotographerModel };
