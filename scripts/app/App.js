@@ -37,7 +37,11 @@ class App {
         const photographers = await this.photographersApi.getPhotographer();
         console.log(photographers);
         this.displayPhotographers(photographers);
+
+        const article = document.createElement("article");
+        article.addEventListener('click', console.log(window.location.href));
     }
 };
 const app = new App();
 app.init();
+

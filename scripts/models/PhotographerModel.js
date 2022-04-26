@@ -7,6 +7,8 @@ class PhotographerModel {
         this._country = country
         this._price = price
         this._id = id
+
+        console.log(window.location.href);
     }
     get name(){
         return this._name
@@ -27,7 +29,7 @@ class PhotographerModel {
         return `assets/photographers/profil/${this._portrait}`
     }
     get id(){
-        return this._id
+        return `html/${this._id}.html`
     }
     photographerTemplate(){
         const article = document.createElement("article");
@@ -45,7 +47,17 @@ class PhotographerModel {
 
         return article;
     }
+
+    getPhotographerTemplate (id, medias){
+
+        return medias.filter((media) => {
+            return media.photographerId === id;
+          });
+    
+    }
 };
+
+
 
 
 export { PhotographerModel };
