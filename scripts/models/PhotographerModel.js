@@ -1,3 +1,5 @@
+import { PhotographerPage } from '../factories/PhotographerPage.js'
+
 class PhotographerModel {
     constructor(name, portrait, city, country, tagline, price, id) {
         this._name = name
@@ -35,7 +37,7 @@ class PhotographerModel {
         const article = document.createElement("article");
         article.id = "photographers";
         const photographerCard = `
-        <a href="./${this._id}.html" alt="Photographer Page">
+        <a href="./${this._id}.html" alt="Photographer Page" onclick="openDedicatedPage()" id="dedicatedLink">
           <img src="../assets/photographers/profil/${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
         </a>
@@ -44,9 +46,18 @@ class PhotographerModel {
         <p class="photographer_price">${this._price}€/jours</p>
     `;
         article.innerHTML = photographerCard;
+        const link = document.getElementById('dedicatedLink');
+        link.addEventListener("click", function(event){
+            event.preventDefault()
+        });
 
         return article;
     }
+
+    openDedicatedPage(){
+
+    }
+
 
     getPhotographerTemplate (id, medias){
 

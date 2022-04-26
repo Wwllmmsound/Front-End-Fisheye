@@ -19,7 +19,6 @@ class PhotographerApi extends Api {
     async getPhotographer() {
         console.log('Donnée récupéré');
         return await this.get();
-        
     }
 
     async getMedia(){
