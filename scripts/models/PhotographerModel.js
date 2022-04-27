@@ -1,5 +1,3 @@
-import { PhotographerPage } from '../factories/PhotographerPage.js'
-
 class PhotographerModel {
     constructor(name, portrait, city, country, tagline, price, id) {
         this._name = name
@@ -10,7 +8,7 @@ class PhotographerModel {
         this._price = price
         this._id = id
 
-        console.log(window.location.href);
+        // console.log(window.location.href);
     }
     get name(){
         return this._name
@@ -31,13 +29,30 @@ class PhotographerModel {
         return `assets/photographers/profil/${this._portrait}`
     }
     get id(){
-        return `html/${this._id}.html`
+        return this._id
     }
+
+// __________________________FUNCTION OPENING THE DEDICATED WEBPAGE______________________
+
+    openDedicatedPage(name, portrait, city, country, tagline, price, id){
+        if (id){
+            window.open(`./photographer-page.html/${this._id}`,
+                        name,
+                        portrait,
+                        city,
+                        country,
+                        tagline,
+                        price)
+        }
+    }
+
+
+
     photographerTemplate(){
         const article = document.createElement("article");
         article.id = "photographers";
         const photographerCard = `
-        <a href="./${this._id}.html" alt="Photographer Page" onclick="openDedicatedPage()" id="dedicatedLink">
+        <a href="./photographer-page.html/${this._id}" alt="Photographer Page" onclick="openDedicatedPage()" id="dedicatedLink">
           <img src="../assets/photographers/profil/${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
         </a>
@@ -46,17 +61,14 @@ class PhotographerModel {
         <p class="photographer_price">${this._price}€/jours</p>
     `;
         article.innerHTML = photographerCard;
-        const link = document.getElementById('dedicatedLink');
-        link.addEventListener("click", function(event){
+        article.addEventListener('click', (event) => {
             event.preventDefault()
         });
 
         return article;
     }
 
-    openDedicatedPage(){
-
-    }
+    
 
 
     getPhotographerTemplate (id, medias){
