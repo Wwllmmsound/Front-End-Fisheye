@@ -1,8 +1,9 @@
 import { PhotographerApi } from '../api/Api.js'
+import { PhotographerPage } from '../factories/PhotographerPage.js'
 
 class PageApp {
     constructor(){
-        this.photographers = document.querySelector('#photographerHeader')
+        this.photographersHead = document.querySelector('#photographerHeader')
         this.photographersApi = new PhotographerApi('../data/photographers.json')
     }
 
@@ -12,7 +13,7 @@ class PageApp {
 
     // Fonction qui doit changer en rapport avec l'ID des photographers
 
-    async displayPhotographerHeader(photographer){
+    async displayPhotographerPage(photographer){
             const template = new PhotographerPage(
                 photographer.name,
                 photographer.portrait,
@@ -28,13 +29,20 @@ class PageApp {
             //
             // if (photographer.id)
 
-            const photographerHeader = template.photographerHeader();
-            const photographerProfilePic = template.photographerProfilePic();
-
-            const photographerSection = document.querySelector("#photographerHeader");
-                
-            photographerSection.appendChild(photographerTemplate);
-
             
-    };
+    }
+    async init() {
+        const photographerHeader = template.photographerHeader();
+        const photographerProfilePic = template.photographerProfilePic();
+
+        const photographerSection = document.querySelector("#photographerHeader");
+        
+        photographerSection.appendChild(photographerHeader);
+        photographerSection.appendChild(photographerProfilePic);
+    }
 }
+
+const pageApp = new PageApp();
+pageApp.init();
+
+export { PageApp }

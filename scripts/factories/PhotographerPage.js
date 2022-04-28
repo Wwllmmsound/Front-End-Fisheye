@@ -1,8 +1,36 @@
 import { PhotographerModel } from '../models/PhotographerModel.js'
+import { PageApp } from '../app/PageApp.js'
 
-class PhotographerPage extends PhotographerModel{
-    constructor(name, portrait, city, country, tagline, price, id){
-        super(name, portrait, city, country, tagline, price, id)
+class PhotographerPage {
+    constructor(name, portrait, city, country, tagline, price, id) {
+        this._name = name,
+        this._portrait = portrait,
+        this._tagline = tagline,
+        this._city = city,
+        this._country = country,
+        this._price = price,
+        this._id = id
+    }
+    get name(){
+        return this._name
+    }
+    get city(){
+        return this._city
+    }
+    get country(){
+        return this._country
+    }
+    get tagline(){
+        return this._tagline
+    }
+    get price(){
+        return this._price
+    }
+    get portrait(){
+        return `assets/photographers/profil/${this._portrait}`
+    }
+    get id(){
+        return this._id
     }
 
     photographerHeader(){

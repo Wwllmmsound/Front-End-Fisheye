@@ -1,14 +1,12 @@
 class PhotographerModel {
     constructor(name, portrait, city, country, tagline, price, id) {
-        this._name = name
-        this._portrait = portrait
-        this._tagline = tagline
-        this._city = city
-        this._country = country
-        this._price = price
+        this._name = name,
+        this._portrait = portrait,
+        this._tagline = tagline,
+        this._city = city,
+        this._country = country,
+        this._price = price,
         this._id = id
-
-        // console.log(window.location.href);
     }
     get name(){
         return this._name
@@ -32,27 +30,12 @@ class PhotographerModel {
         return this._id
     }
 
-// __________________________FUNCTION OPENING THE DEDICATED WEBPAGE______________________
-
-    openDedicatedPage(name, portrait, city, country, tagline, price, id){
-        if (id){
-            window.open(`./photographer-page.html/${this._id}`,
-                        name,
-                        portrait,
-                        city,
-                        country,
-                        tagline,
-                        price)
-        }
-    }
-
-
+// ________________________FUNCTION OPENING THE DEDICATED WEBPAGE______________________
 
     photographerTemplate(){
         const article = document.createElement("article");
-        article.id = "photographers";
         const photographerCard = `
-        <a href="./photographer-page.html/${this._id}" alt="Photographer Page" onclick="openDedicatedPage()" id="dedicatedLink">
+        <a href="./photographer-page.html" alt="Photographer Page" id="dedicatedLink">
           <img src="../assets/photographers/profil/${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
         </a>
@@ -61,14 +44,27 @@ class PhotographerModel {
         <p class="photographer_price">${this._price}€/jours</p>
     `;
         article.innerHTML = photographerCard;
-        article.addEventListener('click', (event) => {
-            event.preventDefault()
-        });
+        article.id = this._id;
+
+
+        // if (article.id === this._id){
+        //     this._name,
+        //     this._portrait,
+        //     this._city,
+        //     this._country,
+        //     this._tagline,
+        //     this._price
+        // }
+
+        // article.addEventListener('click', (event) => {
+        //     event.preventDefault(),
+        //     console.log(this._id)
+        // });
+        
+        // onclick="openDedicatedPage()"
 
         return article;
     }
-
-    
 
 
     getPhotographerTemplate (id, medias){

@@ -1,6 +1,5 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from '../models/PhotographerModel.js'
-import { PhotographerPage } from '../factories/PhotographerPage.js'
 
 class App {
     constructor() {
@@ -15,7 +14,7 @@ class App {
     async displayPhotographers(photographer){
         console.log(this.photographers);
         photographer.forEach((photographer)=>{
-                const template = new PhotographerPage(
+                const template = new PhotographerModel(
                     photographer.name,
                     photographer.portrait,
                     photographer.city,
@@ -44,4 +43,3 @@ class App {
 };
 const app = new App();
 app.init();
-
