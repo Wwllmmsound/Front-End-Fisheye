@@ -35,7 +35,7 @@ class PhotographerModel {
     photographerTemplate(){
         const article = document.createElement("article");
         const photographerCard = `
-        <a href="./photographer-page.html" alt="Photographer Page" id="dedicatedLink">
+        <a href="./photographer-page.html?id=${this._id}" alt="Photographer Page" id="dedicatedLink">
           <img src="../assets/photographers/profil/${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
         </a>

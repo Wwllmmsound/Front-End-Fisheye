@@ -24,19 +24,18 @@ class PageApp {
                 photographer.id
             );
 
-
             // Rechercher if statement ou autre methode pour afficher la page en fonction de l'ID
-            //
+//
             // if (photographer.id)
 
-            
+
     }
     async init() {
         const photographerHeader = template.photographerHeader();
         const photographerProfilePic = template.photographerProfilePic();
 
         const photographerSection = document.querySelector("#photographerHeader");
-        
+
         photographerSection.appendChild(photographerHeader);
         photographerSection.appendChild(photographerProfilePic);
     }
