@@ -46,23 +46,6 @@ class PhotographerModel {
         article.innerHTML = photographerCard;
         article.id = this._id;
 
-
-        // if (article.id === this._id){
-        //     this._name,
-        //     this._portrait,
-        //     this._city,
-        //     this._country,
-        //     this._tagline,
-        //     this._price
-        // }
-
-        // article.addEventListener('click', (event) => {
-        //     event.preventDefault(),
-        //     console.log(this._id)
-        // });
-        
-        // onclick="openDedicatedPage()"
-
         return article;
     }
 
@@ -72,7 +55,6 @@ class PhotographerModel {
         return medias.filter((media) => {
             return media.photographerId === id;
           });
-    
     }
 };
 

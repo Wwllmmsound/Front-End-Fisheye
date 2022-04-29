@@ -1,5 +1,5 @@
 import { PhotographerApi } from '../api/Api.js'
-import { PhotographerPage } from '../factories/PhotographerPage.js'
+import { PhotographerPage } from '../models/PhotographerPage.js'
 
 class PageApp {
     constructor(){
@@ -24,21 +24,28 @@ class PageApp {
                 photographer.id
             );
 
+        const photographerHeader = template.photographerHeader();
+        const photographerProfilePic = template.photographerProfilePic();
+
+        const photographerSection = document.querySelector("#photographerHeader");
+        const photographerImg = document.querySelector("#photographerProfilPic");
+
+        photographerSection.appendChild(photographerHeader);
+        photographerImg.appendChild(photographerProfilePic);
+
             // Rechercher if statement ou autre methode pour afficher la page en fonction de l'ID
 //
             // if (photographer.id)
 
 
-    }
+    };
     async init() {
-        const photographerHeader = template.photographerHeader();
-        const photographerProfilePic = template.photographerProfilePic();
+        const photographersHead = await this.photographersApi.getPhotographer();
+        console.log(photographersHead);
+        this.displayPhotographerPage(photographersHead);
 
-        const photographerSection = document.querySelector("#photographerHeader");
-
-        photographerSection.appendChild(photographerHeader);
-        photographerSection.appendChild(photographerProfilePic);
-    }
+        const article = document.createElement("div");
+    };
 }
 
 const pageApp = new PageApp();

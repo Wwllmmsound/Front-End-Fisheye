@@ -1,10 +1,10 @@
-import { PhotographerModel } from '../models/PhotographerModel.js'
-import { PageApp } from '../app/PageApp.js'
+import { PhotographerModel } from './PhotographerModel.js'
 
 class PhotographerPage extends PhotographerModel{
     constructor(name, portrait, city, country, tagline, price, id){
         super(name, portrait, city, country, tagline, price)
-        id = article.id
+
+        id = new URLSearchParams(document.location.search).get("id");
     }
 
     photographerHeader(){
@@ -20,7 +20,7 @@ class PhotographerPage extends PhotographerModel{
     }
 
     photographerProfilePic(){
-        const profilPic = document.getElementById("photographerProfilPic");
+        const profilPic = document.createElement("div");
         const image = `
         <img src="../assets/photographers/profil/${this.portrait}" alt="photographer profile image" class="photographerProfilPic">
         `
