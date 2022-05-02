@@ -2,9 +2,13 @@ import { PhotographerModel } from './PhotographerModel.js'
 
 class PhotographerPage extends PhotographerModel{
     constructor(name, portrait, city, country, tagline, price, id){
-        super(name, portrait, city, country, tagline, price)
+        id = (new URL(document.location)).searchParams.get("id");
+        if (id === this._id){
+            super(name, portrait, city, country, tagline, price)
+        }
+        
 
-        id = new URLSearchParams(document.location.search).get("id");
+        
     }
 
     photographerHeader(){
@@ -16,6 +20,7 @@ class PhotographerPage extends PhotographerModel{
             <p class="profile_slogan">${this.tagline}</p>
         `;
         header.innerHTML = photographerHeader;
+        
         return header
     }
 
@@ -28,5 +33,6 @@ class PhotographerPage extends PhotographerModel{
         return profilPic
     }
 }
+
 
 export { PhotographerPage };
