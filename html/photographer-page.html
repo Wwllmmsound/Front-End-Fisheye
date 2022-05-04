@@ -31,7 +31,7 @@
           </select>
         </div>
         <section class="photos-list" id="photosList">
-          <figure>
+          <!-- <figure>
               <img src="" alt="img definiton">
               <figcaption class="photo-info">
                 <p class="photo-title">Titre de la photo</p>
@@ -40,7 +40,7 @@
                     <i class="fas fa-heart"></i>
                 </div>
             </figcaption>
-          </figure>
+          </figure> -->
         </section> 
     </main>
 <!-- ____________________________________daily price_________________________________ -->
@@ -70,62 +70,46 @@
              
               onsubmit="sendMessage();"
             >
-              <div
-                class="formData">
-                <label for="first">Prénom</label><br>
+              <div class="formData">
+                <label for="first">Prénom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                 />
-                <br>
                 <div id="required_first" class="required-msg"></div>
-                <br>
               </div>
-              <div
-                class="formData">
-                <label for="last">Nom</label><br>
+              <div class="formData">
+                <label for="last">Nom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
                 />
-                <br>
                 <div id="required_last" class="required-msg"></div>
-                <br>
               </div>
-              <div
-                class="formData">
-                <label for="email">E-mail</label><br>
+              <div class="formData">
+                <label for="email">E-mail</label>
                 <input
                   class="text-control"
                   type="text"
                   id="email"
                   name="email"
                 />
-                <br>
                 <div id="required_email" class="required-msg"></div>
-                <br>
               </div>
               <div
-                class="formData">
-                <label for="message">Votre message</label><br>
+                class="formData customerMessage">
+                <label for="message">Votre message</label>
                 <textarea 
                     name="message" 
                     id="message" 
-                    cols="30" 
-                    rows="10"></textarea>
-                <br>
-                <div id="required_email" class="required-msg"></div>
-                <br>
+                    cols="55" 
+                    rows="200"></textarea>
               </div>
               <button class="contact_button">Envoyer</button>
-              <div class="valid-form" id="modal-thanks">
-                <h2>Merci pour <br> votre inscription</h2>
-                <button class="btn-submit" id="close-modal">Fermer</button>
-              </div>
             </form>
           </div>
         </div>

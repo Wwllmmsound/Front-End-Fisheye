@@ -21,10 +21,27 @@
   cursor: pointer;
 }
 
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 .modal {
+  position: absolute;
+  z-index: 5;
+  opacity: 1;
+  top: 5%;
+  left: 30%;
   border-radius: 5px;
-  background-color: #DB8876;
-  width: 50%;
+  background-color: #D3573C;
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,11 +52,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 35px;
   margin: auto;
+  height: 80%;
 }
 
 .modal header {
@@ -54,7 +72,7 @@
 }
 
 .modal header h2 {
-  font-size: 64px;
+  font-size: 54px;
   font-weight: normal;
   text-align: center;
 }
@@ -75,7 +93,7 @@ form {
 
 form label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 24px;
 }
 
 form div {
@@ -87,17 +105,34 @@ form div {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  -webkit-box-align: self-start;
-      -ms-flex-align: self-start;
-          align-items: self-start;
-  margin-bottom: 26px;
+  height: 95px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+form div div {
+  height: 20px;
+  margin-bottom: 1px;
 }
 
 form input {
   width: 100%;
-  height: 68px;
+  height: 42px;
   border: none;
   border-radius: 5px;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+form .customerMessage {
+  height: 160px;
+}
+
+form button {
+  margin-top: 20px;
 }
 
 .photograph-header {
@@ -372,11 +407,5 @@ h1 {
   padding-top: 0;
   margin-bottom: 4px;
   font-size: 14px;
-}
-
-.hashtag-select .hashtag {
-  color: #901C1C;
-  border: solid grey 1px;
-  border-radius: 30px;
 }
 /*# sourceMappingURL=style.css.map */
