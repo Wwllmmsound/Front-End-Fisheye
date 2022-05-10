@@ -163,6 +163,9 @@ form button {
 .photograph-header img {
   height: 200px;
   width: 200px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main {

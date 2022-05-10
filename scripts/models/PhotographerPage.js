@@ -1,34 +1,83 @@
 import { PhotographerModel } from './PhotographerModel.js'
+import { PhotographerApi } from '../api/Api.js'
+class PhotographerPage extends PhotographerModel {
 
-class PhotographerPage extends PhotographerModel{
-    constructor(name, portrait, city, country, tagline, price, id){
-        super(name, portrait, city, country, tagline, price)
 
-        id = (new URL(document.location)).searchParams.get("id");
+    constructor() {
+        super(name)
+        this.photographersHead = document.querySelector('#photographerHeader')
+        this.photographersApi = new PhotographerApi('../data/photographers.json')
+        this._id = (new URL(document.location)).searchParams.get("id");
+
+        console.log(this._id)
+
+
     }
 
-    photographerHeader(){
+    async displayPhotographerPage(photographer) {
+
+
+        const photographerHeader = this.photographerHeader(photographer);
+        const photographerProfilePic = this.photographerProfilePic(photographer);
+
+        const photographerSection = document.querySelector("#photographerHeader");
+        const photographerImg = document.querySelector("#photographerProfilPic");
+
+        photographerSection.appendChild(photographerHeader);
+        photographerImg.appendChild(photographerProfilePic);
+    };
+
+    photographerHeader(photographer) {
         const header = document.createElement("div");
         header.classList.add('profile_info');
         const photographerHeader = `
-            <h1 class="profile_name">${this.name}</h1>
-            <h3 class="profile_origine">${this.city}, ${this.country}</h3>
-            <p class="profile_slogan">${this.tagline}</p>
+            <h1 class="profile_name">${photographer.name}</h1>
+            <h3 class="profile_origine">${photographer.city}, ${photographer.country}</h3>
+            <p class="profile_slogan">${photographer.tagline}</p>
         `;
         header.innerHTML = photographerHeader;
 
         return header
     }
 
-    photographerProfilePic(){
+    photographerProfilePic(photographer) {
         const profilPic = document.createElement("div");
         const image = `
-        <img src="../assets/photographers/profil/${this.portrait}" alt="photographer profile image" class="photographerProfilPic">
+        <img src="../${photographer.portrait}" alt="${photographer.name} profile image" class="photographerProfilPic">
         `
         profilPic.innerHTML = image;
         return profilPic
     }
+
+
+    async init() {
+        const photographersHead = await this.photographersApi.getPhotographer();
+        const listPhotographers = photographersHead.map(photographer => new PhotographerModel(
+            photographer.name,
+            photographer.portrait,
+            photographer.city,
+            photographer.country,
+            photographer.tagline,
+            photographer.price,
+            photographer.id,
+        ))
+
+        console.log(listPhotographers);
+        console.log(photographersHead);
+        for (let photographer of listPhotographers) {
+            if (photographer.id == this._id) {
+                console.log("id from photographer page" + this._id)
+                this.displayPhotographerPage(photographer);
+
+            }
+        }
+
+        console.log("photographersHead" + photographersHead);
+
+        const article = document.createElement("div");
+    };
 }
 
-
+const photographerPage = new PhotographerPage();
+photographerPage.init();
 export { PhotographerPage };

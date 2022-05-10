@@ -11,8 +11,6 @@ class PageApp {
         const photographersData = await this.photographersApi.getPhotographer();
     };
 
-    // Fonction qui doit changer en rapport avec l'ID des photographers
-
     async displayPhotographerPage(photographer){
             const template = new PhotographerPage(
                 photographer.name,
@@ -32,13 +30,9 @@ class PageApp {
 
         photographerSection.appendChild(photographerHeader);
         photographerImg.appendChild(photographerProfilePic);
-
-            // Rechercher if statement ou autre methode pour afficher la page en fonction de l'ID
-//
-            // if (photographer.id)
-
-
     };
+
+
     async init() {
         const photographersHead = await this.photographersApi.getPhotographer();
         console.log(photographersHead);
@@ -47,8 +41,4 @@ class PageApp {
         const article = document.createElement("div");
     };
 }
-
-const pageApp = new PageApp();
-pageApp.init();
-
 export { PageApp }

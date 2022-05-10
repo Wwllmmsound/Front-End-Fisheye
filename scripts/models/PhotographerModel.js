@@ -30,6 +30,10 @@ class PhotographerModel {
         return this._id
     }
 
+    setId(id) {
+        this._id = id;
+    }
+
 // ________________________FUNCTION OPENING THE DEDICATED WEBPAGE______________________
 
     photographerTemplate(){
