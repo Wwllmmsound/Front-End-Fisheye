@@ -31,9 +31,9 @@ class PhotographerPage extends PhotographerModel {
         const header = document.createElement("div");
         header.classList.add('profile_info');
         const photographerHeader = `
-            <h1 class="profile_name">${photographer.name}</h1>
-            <h3 class="profile_origine">${photographer.city}, ${photographer.country}</h3>
-            <p class="profile_slogan">${photographer.tagline}</p>
+            <h1 class="profile_name" aria-label="Nom du photographe">${photographer.name}</h1>
+            <h3 class="profile_origine" aria-label="Ville du photographe">${photographer.city}, ${photographer.country}</h3>
+            <p class="profile_slogan" aria-label="Slogan du photographe">${photographer.tagline}</p>
         `;
         header.innerHTML = photographerHeader;
 
@@ -43,7 +43,7 @@ class PhotographerPage extends PhotographerModel {
     photographerProfilePic(photographer) {
         const profilPic = document.createElement("div");
         const image = `
-        <img src="../${photographer.portrait}" alt="${photographer.name} profile image" class="photographerProfilPic">
+        <img src="../${photographer.portrait}" alt="${photographer.name} profile image" class="photographerProfilPic" aria-label="Photo de profile du photographe">
         `
         profilPic.innerHTML = image;
         return profilPic

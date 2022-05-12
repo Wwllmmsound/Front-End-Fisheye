@@ -39,13 +39,13 @@ class PhotographerModel {
     photographerTemplate(){
         const article = document.createElement("article");
         const photographerCard = `
-        <a href="./photographer-page.html?id=${this._id}" alt="Photographer Page" id="dedicatedLink">
+        <a href="./photographer-page.html?id=${this._id}" alt="Photographer Page" id="dedicatedLink" aria-label="Lien vers la page du photographe ${this._name}">
           <img src="../assets/photographers/profil/${this._portrait}" alt="${this._name} profile image" class="photographer_profileImg">
           <h2>${this._name}</h2>
         </a>
-        <p class="photographer_origine">${this._city}, ${this._country}</p>
-        <p class="photographer_slogan">${this._tagline}</p>
-        <p class="photographer_price">${this._price}€/jours</p>
+        <p class="photographer_origine" aria-label="Ville du photographe">${this._city}, ${this._country}</p>
+        <p class="photographer_slogan" aria-label="Slogan du photographe">${this._tagline}</p>
+        <p class="photographer_price" aria-label="Prix du photographe">${this._price}€/jours</p>
     `;
         article.innerHTML = photographerCard;
         article.id = this._id;

@@ -130,6 +130,15 @@ form {
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
+    .photograph-contact{
+        padding: 0;
+        margin: 0;
+    }
+    .contact_button{
+        height: 60px;
+        width: 150px;
+        font-size: 1rem;
+    }
     .profile_info{
 
         .profile_name{

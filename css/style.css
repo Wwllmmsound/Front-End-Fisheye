@@ -148,6 +148,17 @@ form button {
   padding: 0 40px;
 }
 
+.photograph-header .photograph-contact {
+  padding: 0;
+  margin: 0;
+}
+
+.photograph-header .contact_button {
+  height: 60px;
+  width: 150px;
+  font-size: 1rem;
+}
+
 .photograph-header .profile_info .profile_name {
   font-size: 70px;
   font-weight: 500;

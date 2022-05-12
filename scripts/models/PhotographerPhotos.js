@@ -42,11 +42,11 @@ class PhotographerPhotos {
         PhotographerPhotoList(){
             const figure = document.createElement("figure");
             const photographerPhoto = `
-            <img src="${this._image}" alt="${this._title}">
-              <figcaption class="photo-info">
-                <p class="photo-title">${this._title}</p>
+            <img src="${this._image}" alt="${this._title}" aria-label="Photo">
+              <figcaption class="photo-info" aria-label="Information sur la photo">
+                <p class="photo-title" aria-label="Titre de la photo">${this._title}</p>
                 <div>
-                    <p id="numbOfLike">${this._like}</p>
+                    <p id="numbOfLike" aria-label="Nombre de likes">${this._like}</p>
                     <i class="fas fa-heart"></i>
                 </div>
             </figcaption>
