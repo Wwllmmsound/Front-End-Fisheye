@@ -4,9 +4,8 @@ class PhotographerPage extends PhotographerModel {
 
 
     constructor() {
-        super(name)
-        this.photographersHead = document.querySelector('#photographerHeader')
-        this.photographersApi = new PhotographerApi('../data/photographers.json')
+        super(name),
+        this.photographersApi = new PhotographerApi('../data/photographers.json'),
         this._id = (new URL(document.location)).searchParams.get("id");
 
         console.log(this._id)
@@ -31,9 +30,12 @@ class PhotographerPage extends PhotographerModel {
         const header = document.createElement("div");
         header.classList.add('profile_info');
         const photographerHeader = `
-            <h1 class="profile_name" aria-label="Nom du photographe">${photographer.name}</h1>
-            <h3 class="profile_origine" aria-label="Ville du photographe">${photographer.city}, ${photographer.country}</h3>
-            <p class="profile_slogan" aria-label="Slogan du photographe">${photographer.tagline}</p>
+            <h1 class="profile_name"
+            aria-label="Nom du photographe">${photographer.name}</h1>
+            <h3 class="profile_origine"
+            aria-label="Ville du photographe">${photographer.city}, ${photographer.country}</h3>
+            <p class="profile_slogan"
+            aria-label="Slogan du photographe">${photographer.tagline}</p>
         `;
         header.innerHTML = photographerHeader;
 
@@ -43,7 +45,10 @@ class PhotographerPage extends PhotographerModel {
     photographerProfilePic(photographer) {
         const profilPic = document.createElement("div");
         const image = `
-        <img src="../${photographer.portrait}" alt="${photographer.name} profile image" class="photographerProfilPic" aria-label="Photo de profile du photographe">
+        <img src="../${photographer.portrait}"
+        alt="${photographer.name} profile image"
+        class="photographerProfilPic"
+        aria-label="Photo de profile du photographe">
         `
         profilPic.innerHTML = image;
         return profilPic
@@ -59,7 +64,7 @@ class PhotographerPage extends PhotographerModel {
             photographer.country,
             photographer.tagline,
             photographer.price,
-            photographer.id,
+            photographer.id
         ))
 
         console.log(listPhotographers);
@@ -73,8 +78,6 @@ class PhotographerPage extends PhotographerModel {
         }
 
         console.log("photographersHead" + photographersHead);
-
-        const article = document.createElement("div");
     };
 }
 

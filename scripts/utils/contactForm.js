@@ -3,6 +3,7 @@ function displayModal() {
 	modal.style.display = "block";
     const modalBg = document.querySelector(".bground");
     modalBg.style.display = "block";
+    modal.setAttribute("aria-hidden", "false");
 }
 
 function closeModal() {
@@ -10,4 +11,5 @@ function closeModal() {
     modal.style.display = "none";
     const modalBg = document.querySelector(".bground");
     modalBg.style.display = "none";
+    modal.setAttribute("aria-hidden", "true");
 }
