@@ -24,11 +24,6 @@ class PagePhotosApp {
                     media.price
                 );
 
-                const photoListTemplate = template.PhotographerPhotoList();
-                const photographerSection = document.querySelector("#photosList");
-                
-                photographerSection.appendChild(photoListTemplate);
-
             });
     };
 }

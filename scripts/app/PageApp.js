@@ -21,24 +21,6 @@ class PageApp {
                 photographer.price,
                 photographer.id
             );
-
-        const photographerHeader = template.photographerHeader();
-        const photographerProfilePic = template.photographerProfilePic();
-
-        const photographerSection = document.querySelector("#photographerHeader");
-        const photographerImg = document.querySelector("#photographerProfilPic");
-
-        photographerSection.appendChild(photographerHeader);
-        photographerImg.appendChild(photographerProfilePic);
-    };
-
-
-    async init() {
-        const photographersHead = await this.photographersApi.getPhotographer();
-        console.log(photographersHead);
-        this.displayPhotographerPage(photographersHead);
-
-        const article = document.createElement("div");
     };
 }
 export { PageApp }

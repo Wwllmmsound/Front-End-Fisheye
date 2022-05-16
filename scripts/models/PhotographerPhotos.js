@@ -15,6 +15,9 @@ class PhotographerPhotos {
     get id(){
         return this._id
     }
+    setId(id) {
+        this._id = id;
+    }
     get photographerId(){
         return this._photographerId
     }
@@ -62,15 +65,15 @@ class PhotographerPhotos {
     }
 
     async init(){
-        const allPhotos = await this.this.photosApi.getMedia();
-        const listPhotos = allPhotos.map.map(media => new PhotographerPhotos(
+        const allPhotos = await this.photosApi.getMedia();
+        const listPhotos = allPhotos.map.map(media => {
             media.photographerId,
             media.title,
             media.image,
             media.likes,
             media.date,
             media.price
-        ))
+    })
 
         for (let media of listPhotos) {
             if (media.photographerId == this._id) {
