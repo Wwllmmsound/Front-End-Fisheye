@@ -1,11 +1,12 @@
 import { PhotographerApi } from '../api/Api.js'
 
 class PhotographerPhotos {
-    constructor(photographerId, title, image, likes, date, price){
+    constructor(photographerId, title, image, video, likes, date, price){
         this._id = (new URL(document.location)).searchParams.get("id"),
         this._photographerId = photographerId,
         this._title = title,
         this._image = image,
+        this._video = video,
         this._likes = likes,
         this._date = date,
         this._price = price,
@@ -25,7 +26,10 @@ class PhotographerPhotos {
         return this._title
     }
     get image(){
-        return `assets/photographers/${this._photographerId}/${this._image}`
+        return `../assets/photographers/${this._photographerId}/${this._image}`
+    }
+    get video(){
+        return `../assets/photographers/${this._photographerId}/${this._video}`
     }
     get likes(){
         return this._likes
@@ -70,6 +74,7 @@ class PhotographerPhotos {
             media.photographerId,
             media.title,
             media.image,
+            media.video,
             media.likes,
             media.date,
             media.price

@@ -52,14 +52,6 @@ class PhotographerModel {
 
         return article;
     }
-
-
-    getPhotographerTemplate (id, medias){
-
-        return medias.filter((media) => {
-            return media.photographerId === id;
-          });
-    }
 };
 
 

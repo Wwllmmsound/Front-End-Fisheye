@@ -13,3 +13,8 @@ function closeModal() {
     modalBg.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
 }
+
+function sendMessage(e){
+    e.preventDefault();
+    closeModal();
+}
