@@ -1,7 +1,7 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from './PhotographerModel.js'
 
-class PhotographerPhotos {
+class PhotographerMedia {
     constructor(photographerId, title, image, video, likes, date, price, name){
         this._id = (new URL(document.location)).searchParams.get("id"),
         this._photographerId = photographerId,
@@ -12,7 +12,6 @@ class PhotographerPhotos {
         this._date = date,
         this._price = price,
         this._name = name,
-        this.photosApi = new PhotographerApi('../data/photographers.json'),
         this.photographersApi = new PhotographerApi('../data/photographers.json')
     }
     get id(){
@@ -24,32 +23,42 @@ class PhotographerPhotos {
     get photographerId(){
         return this._photographerId
     }
+    setTitle(){
+        this._title = title
+    }
     get title(){
         return this._title
     }
     setImage(image){
         this._image = image
     }
-    setName(name){
-        this._name = name
-    }
     get image(){
-        console.log(this._name);
-        return `../assets/photographers/${this._name}/${this._image}`
+        return this._image
     }
     get video(){
         return `../assets/photographers/${this._name}/${this._video}`
     }
+    setLikes(likes){
+        this._likes = likes
+    }
     get likes(){
         return this._likes
+    }
+    setDate(){
+        this._date = date
     }
     get date(){
         return this._date
     }
+    setPrice(){
+        this._price = price
+    }
     get price(){
         return this._price
     }
-    
+    setName(name){
+        this._name = name
+    }
 
     // ________________________FUNCTION CREATING THE PHOTOS GRID______________________
 
@@ -64,11 +73,11 @@ class PhotographerPhotos {
         const figure = document.createElement("figure");
 
         const photographerPhoto = `
-        <img src="${this._image}" alt="${this._title}" aria-label="Photo">
+        <img src="../assets/photographers/${this._name}/${this._image}" alt="${this._title}" aria-label="Photo">
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this._title}</p>
             <div>
-                <p id="numbOfLike" aria-label="Nombre de likes">${this._like}</p>
+                <p id="numbOfLike" aria-label="Nombre de likes">${this._likes}</p>
                 <i class="fas fa-heart" aria-hidden="true"></i>
             </div>
         </figcaption>
@@ -106,8 +115,8 @@ class PhotographerPhotos {
 }
 
     async init(){
-        const allPhotos = await this.photosApi.getMedia();
-        const listPhotos = allPhotos.map(media => new PhotographerPhotos(
+        const allPhotos = await this.photographersApi.getMedia();
+        const listPhotos = allPhotos.map(media => new PhotographerMedia(
             media.photographerId,
             media.title,
             media.image,
@@ -122,7 +131,16 @@ class PhotographerPhotos {
                 let name = await this.getPhotographerNameById(media.photographerId);
                 this.setName(name);
                 this.setImage(media.image);
-                media.name = this._name;
+                // this.setLikes(media.likes);
+                // this.setTitle(media.title);
+                // this.setPrice(media.price);
+                // this.setDate(media.date);
+                // media.name = this._name;
+                // media.likes = this.likes;
+                // media.title = this._title;
+                // media.price = this._price;
+                // media.date = this._date;
+
                 this.displayPhotosCard(media);
                 console.log(name);
             }
@@ -134,7 +152,7 @@ class PhotographerPhotos {
 }
 
 
-const photosDisplayed = new PhotographerPhotos();
+const photosDisplayed = new PhotographerMedia();
 photosDisplayed.init();
 
-export { PhotographerPhotos };
+export { PhotographerMedia };

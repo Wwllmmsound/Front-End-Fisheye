@@ -1,5 +1,5 @@
 import { PhotographerApi } from '../api/Api.js'
-import { PhotographerPhotos } from '../models/PhotographerPhotos.js'
+import { PhotographerMedia } from '../models/PhotographerMedia.js'
 
 class PagePhotosApp {
     constructor(){
@@ -14,7 +14,7 @@ class PagePhotosApp {
     async displayPhotos(media){
         console.log(this.photosList);
         media.forEach((media)=>{
-                const template = new PhotographerPhotos(
+                const template = new PhotographerMedia (
                     media.id,
                     media.photographerId,
                     media.title,
