@@ -18,3 +18,4 @@ function sendMessage(e){
     e.preventDefault();
     closeModal();
 }
+
