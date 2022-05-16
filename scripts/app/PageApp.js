@@ -1,5 +1,6 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerPage } from '../models/PhotographerPage.js'
+import { PagePhotosApp } from './PagePhotosApp.js'
 
 class PageApp {
     constructor(){

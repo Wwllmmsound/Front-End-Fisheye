@@ -66,19 +66,19 @@ class PhotographerPhotos {
 
     async init(){
         const allPhotos = await this.photosApi.getMedia();
-        const listPhotos = allPhotos.map.map(media => {
+        const listPhotos = allPhotos.map(media => new PhotographerPhotos(
             media.photographerId,
             media.title,
             media.image,
             media.likes,
             media.date,
             media.price
-    })
+    ))
 
         for (let media of listPhotos) {
             if (media.photographerId == this._id) {
                 this.displayPhotos(media);
-                console.log(this._photographerId)
+                console.log("Photo Card")
             }
         }
     }
