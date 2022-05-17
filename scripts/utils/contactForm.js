@@ -14,8 +14,8 @@ function closeModal() {
     modal.setAttribute("aria-hidden", "true");
 }
 
-function sendMessage(e){
-    e.preventDefault();
+function sendMessage(){
+    document.getElementById("sendModal").addEventListener("click", (e) => {e.preventDefault()});
     closeModal();
 }
 

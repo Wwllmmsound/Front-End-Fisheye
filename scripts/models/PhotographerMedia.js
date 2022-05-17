@@ -83,8 +83,6 @@ class PhotographerMedia {
         </figcaption>
     `;
         figure.innerHTML = photographerPhoto;
-        console.log(this._image);
-        console.log(this._name);
         return figure;
     }
 
@@ -112,7 +110,7 @@ class PhotographerMedia {
         }
 
         return name;
-}
+    }
 
     async init(){
         const allPhotos = await this.photographersApi.getMedia();
@@ -124,31 +122,19 @@ class PhotographerMedia {
             media.likes,
             media.date,
             media.price
-    ))
+        ))
 
         for (let media of listPhotos) {
             if (media.photographerId == this._id) {
                 let name = await this.getPhotographerNameById(media.photographerId);
                 this.setName(name);
                 this.setImage(media.image);
-                // this.setLikes(media.likes);
-                // this.setTitle(media.title);
-                // this.setPrice(media.price);
-                // this.setDate(media.date);
-                // media.name = this._name;
-                // media.likes = this.likes;
-                // media.title = this._title;
-                // media.price = this._price;
-                // media.date = this._date;
-
+                this.setLikes(media.likes);
                 this.displayPhotosCard(media);
                 console.log(name);
             }
         }
     }
-
-
-    
 }
 
 
