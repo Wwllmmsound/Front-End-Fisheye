@@ -35,8 +35,11 @@ class PhotographerMedia {
     get image(){
         return this._image
     }
+    setVideo(){
+        this._video = video
+    }
     get video(){
-        return `../assets/photographers/${this._name}/${this._video}`
+        return this._video
     }
     setLikes(likes){
         this._likes = likes
@@ -69,23 +72,6 @@ class PhotographerMedia {
         photosSection.appendChild(photosList);
     }
 
-    PhotographerPhotoList(){
-        const figure = document.createElement("figure");
-
-        const photographerPhoto = `
-        <img src="../assets/photographers/${this._name}/${this._image}" alt="${this._title}" aria-label="Photo">
-            <figcaption class="photo-info" aria-label="Information sur la photo">
-            <p class="photo-title" aria-label="Titre de la photo">${this._title}</p>
-            <div>
-                <p id="numbOfLike" aria-label="Nombre de likes">${this._likes}</p>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-            </div>
-        </figcaption>
-    `;
-        figure.innerHTML = photographerPhoto;
-        return figure;
-    }
-
 
     async getPhotographerNameById(id){
 
@@ -112,33 +98,29 @@ class PhotographerMedia {
         return name;
     }
 
-    async init(){
-        const allPhotos = await this.photographersApi.getMedia();
-        const listPhotos = allPhotos.map(media => new PhotographerMedia(
-            media.photographerId,
-            media.title,
-            media.image,
-            media.video,
-            media.likes,
-            media.date,
-            media.price
-        ))
+    // async init(){
+    //     const allPhotos = await this.photographersApi.getMedia();
+    //     const listPhotos = allPhotos.map(media => new PhotographerMedia(
+    //         media.photographerId,
+    //         media.title,
+    //         media.image,
+    //         media.video,
+    //         media.likes,
+    //         media.date,
+    //         media.price
+    //     ))
 
-        for (let media of listPhotos) {
-            if (media.photographerId == this._id) {
-                let name = await this.getPhotographerNameById(media.photographerId);
-                this.setName(name);
-                this.setImage(media.image);
-                this.setLikes(media.likes);
-                this.displayPhotosCard(media);
-                console.log(name);
-            }
-        }
-    }
+    //     for (let media of listPhotos) {
+    //         if (media.photographerId == this._id) {
+    //             let name = await this.getPhotographerNameById(media.photographerId);
+    //             this.setName(name);
+    //             this.setImage(media.image);
+    //             this.setLikes(media.likes);
+    //             this.displayPhotosCard(media);
+    //             console.log(name);
+    //         }
+    //     }
+    // }
 }
-
-
-const photosDisplayed = new PhotographerMedia();
-photosDisplayed.init();
 
 export { PhotographerMedia };

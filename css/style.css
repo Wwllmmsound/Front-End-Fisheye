@@ -139,6 +139,8 @@ form button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -220,22 +222,35 @@ main .preferences .orderBy option {
 }
 
 main .photos-list {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0;
+  padding: 15px;
 }
 
 main .photos-list figure {
-  margin: 20px 0;
+  margin: 20px 20px;
+  -webkit-box-flex: 3;
+      -ms-flex: 3 3 380px;
+          flex: 3 3 380px;
 }
 
 main .photos-list figure img {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10 100px;
+  border-radius: 8px;
+}
+
+main .photos-list figure video {
   width: 100%;
   height: 250px;
   margin-bottom: 10px;

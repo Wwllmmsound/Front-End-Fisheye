@@ -83,4 +83,5 @@ class PhotographerPage extends PhotographerModel {
 
 const photographerPage = new PhotographerPage();
 photographerPage.init();
+
 export { PhotographerPage };
