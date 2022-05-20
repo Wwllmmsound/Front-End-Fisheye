@@ -1,79 +1,78 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from './PhotographerModel.js'
+import { MediaFactory } from '../factory/MediaFactory.js'
+
 
 class PhotographerMedia {
-    constructor(photographerId, title, image, video, likes, date, price, name){
+    constructor(photographerId, title, image, video, likes, date, price, name) {
         this._id = (new URL(document.location)).searchParams.get("id"),
-        this._photographerId = photographerId,
-        this._title = title,
-        this._image = image,
-        this._video = video,
-        this._likes = likes,
-        this._date = date,
-        this._price = price,
-        this._name = name,
-        this.photographersApi = new PhotographerApi('../data/photographers.json')
+            this._photographerId = photographerId,
+            this._title = title,
+            this._image = image,
+            this._video = video,
+            this._likes = likes,
+            this._date = date,
+            this._price = price,
+            this._name = name,
+            this.photographersApi = new PhotographerApi('../data/photographers.json')
     }
-    get id(){
+    get id() {
         return this._id
     }
     setId(id) {
         this._id = id;
     }
-    get photographerId(){
+    get photographerId() {
         return this._photographerId
     }
-    setTitle(){
+    setTitle() {
         this._title = title
     }
-    get title(){
+    get title() {
         return this._title
     }
-    setImage(image){
+    setImage(image) {
         this._image = image
     }
-    get image(){
+    get image() {
         return this._image
     }
-    setVideo(){
+    setVideo(video) {
         this._video = video
     }
-    get video(){
+    get video() {
         return this._video
     }
-    setLikes(likes){
+    setLikes(likes) {
         this._likes = likes
     }
-    get likes(){
+    get likes() {
         return this._likes
     }
-    setDate(){
+    setDate() {
         this._date = date
     }
-    get date(){
+    get date() {
         return this._date
     }
-    setPrice(){
+    setPrice() {
         this._price = price
     }
-    get price(){
+    get price() {
         return this._price
     }
-    setName(name){
+    setName(name) {
         this._name = name
     }
 
+
+
     // ________________________FUNCTION CREATING THE PHOTOS GRID______________________
 
-    async displayPhotosCard(media){
-        const photosList = this.PhotographerPhotoList(media);
-        const photosSection = document.querySelector("#photosList");
-
-        photosSection.appendChild(photosList);
-    }
 
 
-    async getPhotographerNameById(id){
+
+    async getPhotographerNameById(id) {
 
         let name = "";
 
@@ -98,29 +97,35 @@ class PhotographerMedia {
         return name;
     }
 
-    // async init(){
-    //     const allPhotos = await this.photographersApi.getMedia();
-    //     const listPhotos = allPhotos.map(media => new PhotographerMedia(
-    //         media.photographerId,
-    //         media.title,
-    //         media.image,
-    //         media.video,
-    //         media.likes,
-    //         media.date,
-    //         media.price
-    //     ))
+    async init() {
+        const allPhotos = await this.photographersApi.getMedia();
+        const listPhotos = allPhotos.map(media => new PhotographerMedia(
+            media.photographerId,
+            media.title,
+            media.image,
+            media.video,
+            media.likes,
+            media.date,
+            media.price
+        ))
 
-    //     for (let media of listPhotos) {
-    //         if (media.photographerId == this._id) {
-    //             let name = await this.getPhotographerNameById(media.photographerId);
-    //             this.setName(name);
-    //             this.setImage(media.image);
-    //             this.setLikes(media.likes);
-    //             this.displayPhotosCard(media);
-    //             console.log(name);
-    //         }
-    //     }
-    // }
+        for (let media of listPhotos) {
+            if (media.photographerId == this._id) {
+                let name = await this.getPhotographerNameById(media.photographerId);
+                const mediaDisplay = new MediaFactory(media, name);
+                this.setName(name);
+                if (media._video != undefined) {
+                    this.setVideo(media._video);
+                } else {
+                    this.setImage(media._image);
+                }
+                this.setLikes(media.likes);
+                mediaDisplay.displayCard(media);
+
+            }
+        }
+    }
 }
-
+const photographerMedia = new PhotographerMedia();
+photographerMedia.init();
 export { PhotographerMedia };

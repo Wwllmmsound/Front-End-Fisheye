@@ -1,19 +1,23 @@
 import { PhotographerMedia } from './PhotographerMedia.js'
 
-class PhotographerImage extends PhotographerMedia{
-    constructor(photographerId, title, image, likes, date, price, name){
-        super(photographerId, title, image, likes, date, price, name)
+class PhotographerImage {
+
+    constructor(name, element) {
+        this.media = element
+        this._name = name
+        this._image = this.media.image
+
     }
 
-    PhotographerPhotoList(){
+    PhotographerPhotoList() {
         const figure = document.createElement("figure");
 
         const photographerPhoto = `
-        <img src="../assets/photographers/${this._name}/${this._image}" alt="${this._title}" aria-label="Photo">
+        <img src="../assets/photographers/${this._name}/${this._image}" alt="${this.media.title}" aria-label="Photo">
             <figcaption class="photo-info" aria-label="Information sur la photo">
-            <p class="photo-title" aria-label="Titre de la photo">${this._title}</p>
+            <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div>
-                <p id="numbOfLike" aria-label="Nombre de likes">${this._likes}</p>
+                <p id="numbOfLike" aria-label="Nombre de likes">${this.media.likes}</p>
                 <i class="fas fa-heart" aria-hidden="true"></i>
             </div>
         </figcaption>
@@ -22,33 +26,14 @@ class PhotographerImage extends PhotographerMedia{
         return figure;
     }
 
-    async init(){
-        const allPhotos = await this.photographersApi.getMedia();
-        const listPhotos = allPhotos.map(media => new PhotographerMedia(
-            media.photographerId,
-            media.title,
-            media.image,
-            media.video,
-            media.likes,
-            media.date,
-            media.price
-        ))
+    displayCard(media) {
+        const photosList = this.PhotographerPhotoList(media);
+        const photosSection = document.querySelector("#photosList");
 
-        for (let media of listPhotos) {
-            if (media.photographerId == this._id) {
-                let name = await this.getPhotographerNameById(media.photographerId);
-                this.setName(name);
-                this.setImage(media.image);
-                this.setLikes(media.likes);
-                // this.setTitle(media.title);
-                this.displayPhotosCard(media);
-                console.log(name);
-            }
-        }
+        photosSection.appendChild(photosList);
     }
 }
 
-const photosDisplayed = new PhotographerImage();
-photosDisplayed.init();
+
 
 export { PhotographerImage }

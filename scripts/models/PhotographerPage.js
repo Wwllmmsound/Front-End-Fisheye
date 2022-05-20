@@ -7,7 +7,7 @@ class PhotographerPage extends PhotographerModel {
         super(name),
         this.photographersApi = new PhotographerApi('../data/photographers.json'),
         this._id = (new URL(document.location)).searchParams.get("id");
-        
+
         console.log(this._id)
 
 

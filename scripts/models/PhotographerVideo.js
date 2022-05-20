@@ -1,22 +1,31 @@
 import { PhotographerMedia } from './PhotographerMedia.js'
 
-class PhotographerVideo extends PhotographerMedia{
-    constructor(photographerId, title, video, likes, date, price, name){
-        super(photographerId, title, video, likes, date, price, name)
+const videoSection = document.querySelector("video");
+class PhotographerVideo {
+
+
+    constructor(name, element) {
+        this.media = element
+        this._name = name
+        this._image = this.media.image
+        this._video = this.media.video
+        console.log("*********************" + name);
+        console.log(element)
     }
 
-    PhotographerPhotoList(){
+    PhotographerVideoList() {
         const figure = document.createElement("figure");
-
+        figure.classList.add('video_section')
+            // html video 
         const photographerPhoto = `
         <video controls>
-            <source src="../assets/photographers/${this._name}/${this._video}" 
-            alt="${this._title}" aria-label="Video" type="video/mp4">
+            <source src="../assets/photographers/${this._name}/${this.media.video}" 
+            alt="${this.media.title}" aria-label="Video" type="video/mp4">
         </video>
             <figcaption class="photo-info" aria-label="Information sur la photo">
-            <p class="photo-title" aria-label="Titre de la photo">${this._title}</p>
+            <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div>
-                <p id="numbOfLike" aria-label="Nombre de likes">${this._likes}</p>
+                <p id="numbOfLike" aria-label="Nombre de likes">${this.media.likes}</p>
                 <i class="fas fa-heart" aria-hidden="true"></i>
             </div>
         </figcaption>
@@ -25,32 +34,11 @@ class PhotographerVideo extends PhotographerMedia{
         return figure;
     }
 
-    async init(){
-        const allVideos = await this.photographersApi.getMedia();
-        const listVideos = allVideos.map(media => new PhotographerMedia(
-            media.photographerId,
-            media.title,
-            media.video,
-            media.likes,
-            media.date,
-            media.price
-        ))
-
-        for (let media of listVideos) {
-            if (media.photographerId == this._id) {
-                let name = await this.getPhotographerNameById(media.photographerId);
-                this.setName(name);
-                this.setVideo(media.video);
-                this.setLikes(media.likes);
-                // this.setTitle(media.title);
-                this.displayPhotosCard(media);
-                console.log(name);
-            }
-        }
+    displayCard(media) {
+        const videoList = this.PhotographerVideoList(media);
+        const videoSection = document.querySelector(".photos-list");
+        videoSection.appendChild(videoList);
     }
 }
-
-const videosDisplayed = new PhotographerVideo();
-videosDisplayed.init();
 
 export { PhotographerVideo }
