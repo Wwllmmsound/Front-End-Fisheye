@@ -1,5 +1,7 @@
 import { PhotographerModel } from './PhotographerModel.js'
 import { PhotographerApi } from '../api/Api.js'
+import { PhotographerMedia  } from './PhotographerMedia.js'
+
 class PhotographerPage extends PhotographerModel {
 
 
@@ -57,11 +59,11 @@ class PhotographerPage extends PhotographerModel {
         return profilPic
     }
 
-    photographerHourlyPrice(photographer, media){
+    photographerHourlyPrice(photographer){
         const priceDiv = document.createElement("div");
         const price = `
         <div class="total-like">
-            <p id="totalOfLike" aria-label="Nombre total de likes">${media.likes}</p>
+            <p id="totalOfLike" aria-label="Nombre total de likes" class="totalOfLike">xx</p>
             <i class="fas fa-heart" aria-hidden="true"></i>
         </div>
         <p><span id="dailyPrice" aria-label="Prix par heure"></span>€${photographer.price}/jour</p>
@@ -74,7 +76,7 @@ class PhotographerPage extends PhotographerModel {
 
     async init() {
         const photographersHead = await this.photographersApi.getPhotographer();
-        const photographersLikes = await this.photographersApi.getMedia();
+        const photographersMedia = await this.photographersApi.getMedia();
 
         const listPhotographers = photographersHead.map(photographer => new PhotographerModel(
             photographer.name,
@@ -86,9 +88,9 @@ class PhotographerPage extends PhotographerModel {
             photographer.id
         ))
 
-        const listLikes = photographersLikes.map(media => new PhotographerModel(
-            media.likes
-        ))
+        // const listLikes = photographersLikes.map(media => new PhotographerModel(
+        //     media.likes
+        // ))
 
         console.log(listPhotographers);
         console.log(photographersHead);

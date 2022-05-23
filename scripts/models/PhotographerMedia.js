@@ -1,7 +1,9 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from './PhotographerModel.js'
 import { MediaFactory } from '../factory/MediaFactory.js'
+import { PhotographerPage } from './PhotographerPage.js'
 
+const totalOfLike = document.querySelector(".totalOfLike");
 
 class PhotographerMedia {
     constructor(photographerId, title, image, video, likes, date, price, name) {
@@ -109,8 +111,13 @@ class PhotographerMedia {
             media.price
         ))
 
+        let totalLikes = 0;
+
         for (let media of listPhotos) {
             if (media.photographerId == this._id) {
+                var likes = media.likes;
+                totalLikes += likes;
+
                 let name = await this.getPhotographerNameById(media.photographerId);
                 const mediaDisplay = new MediaFactory(media, name);
                 this.setName(name);
@@ -123,7 +130,10 @@ class PhotographerMedia {
                 mediaDisplay.displayCard(media);
 
             }
+            console.log(totalLikes);
+            console.log(totalOfLike);
         }
+        totalOfLike.innerHTML = totalLikes;
     }
 }
 const photographerMedia = new PhotographerMedia();
