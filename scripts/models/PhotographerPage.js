@@ -18,12 +18,15 @@ class PhotographerPage extends PhotographerModel {
 
         const photographerHeader = this.photographerHeader(photographer);
         const photographerProfilePic = this.photographerProfilePic(photographer);
+        const photographerPrice = this.photographerHourlyPrice(photographer);
 
         const photographerSection = document.querySelector("#photographerHeader");
         const photographerImg = document.querySelector("#photographerProfilPic");
+        const pricePerHour = document.querySelector("#hourlyPrice");
 
         photographerSection.appendChild(photographerHeader);
         photographerImg.appendChild(photographerProfilePic);
+        pricePerHour.appendChild(photographerPrice);
     };
 
     photographerHeader(photographer) {
@@ -54,9 +57,25 @@ class PhotographerPage extends PhotographerModel {
         return profilPic
     }
 
+    photographerHourlyPrice(photographer, media){
+        const priceDiv = document.createElement("div");
+        const price = `
+        <div class="total-like">
+            <p id="totalOfLike" aria-label="Nombre total de likes">${media.likes}</p>
+            <i class="fas fa-heart" aria-hidden="true"></i>
+        </div>
+        <p><span id="dailyPrice" aria-label="Prix par heure"></span>€${photographer.price}/jour</p>
+        `
+        priceDiv.innerHTML = price;
+        priceDiv.classList.add("hourly-price");
+        return priceDiv
+    }
+
 
     async init() {
         const photographersHead = await this.photographersApi.getPhotographer();
+        const photographersLikes = await this.photographersApi.getMedia();
+
         const listPhotographers = photographersHead.map(photographer => new PhotographerModel(
             photographer.name,
             photographer.portrait,
@@ -65,6 +84,10 @@ class PhotographerPage extends PhotographerModel {
             photographer.tagline,
             photographer.price,
             photographer.id
+        ))
+
+        const listLikes = photographersLikes.map(media => new PhotographerModel(
+            media.likes
         ))
 
         console.log(listPhotographers);
