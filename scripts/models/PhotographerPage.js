@@ -9,18 +9,18 @@ class PhotographerPage extends PhotographerModel {
         super(name),
         this.photographersApi = new PhotographerApi('../data/photographers.json'),
         this._id = (new URL(document.location)).searchParams.get("id");
-
+        
         console.log(this._id)
 
 
     }
 
-    async displayPhotographerPage(photographer) {
+    async displayPhotographerPage(photographer,likes) {
 
 
         const photographerHeader = this.photographerHeader(photographer);
         const photographerProfilePic = this.photographerProfilePic(photographer);
-        const photographerPrice = this.photographerHourlyPrice(photographer);
+        const photographerPrice = this.photographerHourlyPrice(photographer,likes);
 
         const photographerSection = document.querySelector("#photographerHeader");
         const photographerImg = document.querySelector("#photographerProfilPic");
@@ -59,11 +59,18 @@ class PhotographerPage extends PhotographerModel {
         return profilPic
     }
 
-    photographerHourlyPrice(photographer){
+     getDatasByPhotographId(id, medias) {
+        return medias.filter((media) => {
+           
+          return media.photographerId === +id;
+        });
+      }
+    photographerHourlyPrice(photographer,totalLikes){
+     
         const priceDiv = document.createElement("div");
         const price = `
         <div class="total-like">
-            <p id="totalOfLike" aria-label="Nombre total de likes" class="totalOfLike">xx</p>
+            <p id="totalOfLike" aria-label="Nombre total de likes" class="totalOfLike">${totalLikes}</p>
             <i class="fas fa-heart" aria-hidden="true"></i>
         </div>
         <p><span id="dailyPrice" aria-label="Prix par heure"></span>€${photographer.price}/jour</p>
@@ -77,6 +84,17 @@ class PhotographerPage extends PhotographerModel {
     async init() {
         const photographersHead = await this.photographersApi.getPhotographer();
         const photographersMedia = await this.photographersApi.getMedia();
+        const allDatas = await this.getDatasByPhotographId(this._id, photographersMedia);
+        console.log("heeere",photographersMedia);
+        var totalLikes = 0;
+        for (let media of allDatas) {
+            if (media.photographerId == this._id) {
+                var likes = media.likes;
+                totalLikes += likes;
+                console.log(totalLikes);
+
+            }
+        }
 
         const listPhotographers = photographersHead.map(photographer => new PhotographerModel(
             photographer.name,
@@ -97,7 +115,7 @@ class PhotographerPage extends PhotographerModel {
         for (let photographer of listPhotographers) {
             if (photographer.id == this._id) {
                 console.log("id from photographer page" + this._id)
-                this.displayPhotographerPage(photographer);
+                this.displayPhotographerPage(photographer,totalLikes);
 
             }
         }
