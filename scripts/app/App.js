@@ -1,5 +1,10 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from '../models/PhotographerModel.js'
+import { PhotographerMedia } from './PhotographerMedia.js'
+import { LikeListCounter } from '../likelist/Counter.js'
+import { LikelistSubject } from '../likelist/Subject.js'
+
+
 
 class App {
     constructor() {
@@ -30,15 +35,30 @@ class App {
                 photographerSection.appendChild(photographerTemplate);
 
             });
-    };
+    }
+
+    async displayLikes(media){
+        media.forEach((media) => {
+            const addLikes = new MediaLikes(
+                media.photographerId,
+                media.title,
+                media.image,
+                media.video,
+                media.likes,
+                media.date,
+                media.price
+            );
+        });
+
+        addLikes.mediaLikes();
+    }
     async init() {
         // Récupère les datas des photographes
         const photographers = await this.photographersApi.getPhotographer();
-        console.log(photographers);
+
         this.displayPhotographers(photographers);
 
         const article = document.createElement("article");
-        article.addEventListener('click', console.log(window.location.href));
     }
 };
 const app = new App();

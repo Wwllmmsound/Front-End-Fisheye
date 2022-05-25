@@ -291,7 +291,12 @@ main .photos-list figure .photo-info div {
   width: 40px;
 }
 
-main .photos-list figure .photo-info div i {
+main .photos-list figure .photo-info div .like-button {
+  border: none;
+  background-color: white;
+}
+
+main .photos-list figure .photo-info div .like-button i {
   color: #901C1C;
 }
 

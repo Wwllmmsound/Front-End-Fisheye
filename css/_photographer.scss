@@ -209,8 +209,12 @@ main{
                     justify-content: space-between;
                     align-items: center;
                     width: 40px;
-                    i{
-                        color: $primary-color;
+                    .like-button{
+                        border: none;
+                        background-color: white;
+                        i{
+                            color: $primary-color;
+                        }
                     }
                 }
             }

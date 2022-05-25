@@ -1,13 +1,16 @@
-class LikelistSubject{
-    constructor(){
-        this._observers = []
+class LikelistSubject {
+    constructor(totalLikes, media){
+        this._observers = totalLikes;
+        this.media.likes = media;
     }
 
-    like(observer){
+    like(media){
         this._observers.push(observer)
+
+        console.log('tic tic');
     }
 
-    unlike(observer){
+    unlike(media){
         this._observers = this._observers.filter(obs => obs!== observer)
     }
 
@@ -15,3 +18,5 @@ class LikelistSubject{
         this._observers.forEach(observer => observer.update(action))
     }
 }
+
+export { LikelistSubject }

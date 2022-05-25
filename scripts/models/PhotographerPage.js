@@ -1,6 +1,5 @@
 import { PhotographerModel } from './PhotographerModel.js'
 import { PhotographerApi } from '../api/Api.js'
-import { PhotographerMedia  } from './PhotographerMedia.js'
 
 class PhotographerPage extends PhotographerModel {
 
@@ -9,15 +8,9 @@ class PhotographerPage extends PhotographerModel {
         super(name),
         this.photographersApi = new PhotographerApi('../data/photographers.json'),
         this._id = (new URL(document.location)).searchParams.get("id");
-        
-        console.log(this._id)
-
-
     }
 
     async displayPhotographerPage(photographer,likes) {
-
-
         const photographerHeader = this.photographerHeader(photographer);
         const photographerProfilePic = this.photographerProfilePic(photographer);
         const photographerPrice = this.photographerHourlyPrice(photographer,likes);
@@ -61,12 +54,11 @@ class PhotographerPage extends PhotographerModel {
 
      getDatasByPhotographId(id, medias) {
         return medias.filter((media) => {
-           
           return media.photographerId === +id;
         });
       }
+
     photographerHourlyPrice(photographer,totalLikes){
-     
         const priceDiv = document.createElement("div");
         const price = `
         <div class="total-like">
@@ -85,14 +77,12 @@ class PhotographerPage extends PhotographerModel {
         const photographersHead = await this.photographersApi.getPhotographer();
         const photographersMedia = await this.photographersApi.getMedia();
         const allDatas = await this.getDatasByPhotographId(this._id, photographersMedia);
-        console.log("heeere",photographersMedia);
+
         var totalLikes = 0;
         for (let media of allDatas) {
             if (media.photographerId == this._id) {
                 var likes = media.likes;
                 totalLikes += likes;
-                console.log(totalLikes);
-
             }
         }
 
@@ -106,21 +96,13 @@ class PhotographerPage extends PhotographerModel {
             photographer.id
         ))
 
-        // const listLikes = photographersLikes.map(media => new PhotographerModel(
-        //     media.likes
-        // ))
-
-        console.log(listPhotographers);
-        console.log(photographersHead);
         for (let photographer of listPhotographers) {
             if (photographer.id == this._id) {
                 console.log("id from photographer page" + this._id)
-                this.displayPhotographerPage(photographer,totalLikes);
 
+                this.displayPhotographerPage(photographer,totalLikes);
             }
         }
-
-        console.log("photographersHead" + photographersHead);
     };
 }
 

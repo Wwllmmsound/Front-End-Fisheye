@@ -15,7 +15,10 @@ function closeModal() {
 }
 
 function sendMessage(){
-    document.getElementById("sendModal").addEventListener("click", (e) => {e.preventDefault()});
+    document.getElementById("sendModal").addEventListener("click", (e) => {e.preventDefault()})
     closeModal();
 }
 
+function likeImage(){
+    this.media.likes ++;
+}

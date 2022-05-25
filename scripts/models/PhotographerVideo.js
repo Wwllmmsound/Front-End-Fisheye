@@ -4,11 +4,13 @@ const videoSection = document.querySelector("video");
 class PhotographerVideo {
 
 
-    constructor(name, element) {
-        this.media = element
-        this._name = name
-        this._image = this.media.image
-        this._video = this.media.video
+    constructor(name, element, LikelistSubject) {
+        this.media = element,
+        this._name = name,
+        this._image = this.media.image,
+        this._video = this.media.video,
+        this.LikelistSubject = LikelistSubject
+
         console.log("*********************" + name);
         console.log(element)
     }
@@ -26,7 +28,8 @@ class PhotographerVideo {
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div>
                 <p id="numbOfLike" aria-label="Nombre de likes">${this.media.likes}</p>
-                <i class="fas fa-heart" aria-hidden="true"></i>
+                <button class="like-button">
+                <i class="fas fa-heart" aria-hidden="true"></i></button>
             </div>
         </figcaption>
     `;
