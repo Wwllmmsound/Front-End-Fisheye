@@ -19,6 +19,3 @@ function sendMessage(){
     closeModal();
 }
 
-function likeImage(){
-    this.media.likes ++;
-}

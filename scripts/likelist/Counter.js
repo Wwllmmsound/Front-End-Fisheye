@@ -7,7 +7,7 @@ class LikeListCounter {
     update(action) {
         if (action === 'add'){
             this._count ++;
-        } else if (action === 'unadd'){
+        } else if (action === 'remove'){
             this._count --;
         } else {
             throw 'Unknown action'

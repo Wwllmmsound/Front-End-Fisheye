@@ -36,11 +36,15 @@ class PhotographerImage {
         const that = this
 
         this._count.querySelector('.like-button')
-                    .addEventListener('click', function(){
-                        if(){
-                            
-                        }
-                    })
+            .addEventListener('click', function(){
+                if(!this.classList.contains('liked')){
+                    this.classList.add('liked');
+                    that.LikelistSubject.fire('add');
+                } else {
+                    this.classList.remove('liked');
+                    that.LikelistSubject.fire('remove');
+                }
+            })
     }
 }
 

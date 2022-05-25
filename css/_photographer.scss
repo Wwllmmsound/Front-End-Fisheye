@@ -209,12 +209,16 @@ main{
                     justify-content: space-between;
                     align-items: center;
                     width: 40px;
-                    .like-button{
+                    .like-button.liked{
                         border: none;
                         background-color: white;
                         i{
                             color: $primary-color;
                         }
+                    }
+                    .like-button{
+                        border: none;
+                        background-color: white;
                     }
                 }
             }
