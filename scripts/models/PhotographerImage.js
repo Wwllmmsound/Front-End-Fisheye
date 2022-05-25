@@ -31,6 +31,17 @@ class PhotographerImage {
 
         photosSection.appendChild(photosList);
     }
+
+    handleLikeButton(){
+        const that = this
+
+        this._count.querySelector('.like-button')
+                    .addEventListener('click', function(){
+                        if(){
+                            
+                        }
+                    })
+    }
 }
 
 
