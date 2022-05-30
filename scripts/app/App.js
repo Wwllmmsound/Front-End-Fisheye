@@ -1,8 +1,5 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from '../models/PhotographerModel.js'
-import { PhotographerMedia } from './PhotographerMedia.js'
-import { LikeListCounter } from '../likelist/Counter.js'
-import { LikelistSubject } from '../likelist/Subject.js'
 
 
 

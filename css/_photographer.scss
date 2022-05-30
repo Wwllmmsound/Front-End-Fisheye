@@ -204,21 +204,16 @@ main{
                 .photo-title{
                     color: $primary-color;
                 }
-                div{
+                .like-button{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    width: 40px;
-                    .like-button.liked{
-                        border: none;
-                        background-color: white;
-                        i{
-                            color: $primary-color;
-                        }
-                    }
-                    .like-button{
-                        border: none;
-                        background-color: white;
+                    width: 60px;
+                    height: 30px;
+                    border: none;
+                    background-color: #FAFAFA;
+                    i{
+                        color: $primary-color;
                     }
                 }
             }
@@ -244,5 +239,15 @@ main{
         align-items: center;
         justify-content: space-evenly;
         width: 100px;
+    }
+}
+
+.lightbox-modal{
+    max-width: 90%;
+    max-height: 90%;
+    .lightbox-img{
+        object-fit: cover;
+        width: 70vw;
+        height: 80vh;
     }
 }

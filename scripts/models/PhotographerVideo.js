@@ -27,9 +27,10 @@ class PhotographerVideo {
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div>
-                <p id="numbOfLike" aria-label="Nombre de likes">${this.media.likes}</p>
                 <button class="like-button">
-                <i class="fas fa-heart" aria-hidden="true"></i></button>
+                    <p id="numbOfLike" aria-label="Nombre de likes" class="like-number">${this.media.likes}</p>
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                </button>
             </div>
         </figcaption>
     `;

@@ -278,7 +278,7 @@ main .photos-list figure .photo-info .photo-title {
   color: #901C1C;
 }
 
-main .photos-list figure .photo-info div {
+main .photos-list figure .photo-info .like-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,15 +288,13 @@ main .photos-list figure .photo-info div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 40px;
-}
-
-main .photos-list figure .photo-info div .like-button {
+  width: 60px;
+  height: 30px;
   border: none;
-  background-color: white;
+  background-color: #FAFAFA;
 }
 
-main .photos-list figure .photo-info div .like-button i {
+main .photos-list figure .photo-info .like-button i {
   color: #901C1C;
 }
 
@@ -332,6 +330,18 @@ main .photos-list figure .photo-info div .like-button i {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   width: 100px;
+}
+
+.lightbox-modal {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-modal .lightbox-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 70vw;
+  height: 80vh;
 }
 
 body {

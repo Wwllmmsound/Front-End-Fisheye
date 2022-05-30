@@ -16,8 +16,10 @@ class PhotographerImage {
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div>
-                <p id="numbOfLike" aria-label="Nombre de likes">${this.media.likes}</p>
-                <button class="like-button"><i class="fas fa-heart" aria-hidden="true"></i></button>
+                <button class="like-button">
+                    <p id="numbOfLike" aria-label="Nombre de likes" class="like-number">${this.media.likes}</p>
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                </button>
             </div>
         </figcaption>
     `;
@@ -32,20 +34,20 @@ class PhotographerImage {
         photosSection.appendChild(photosList);
     }
 
-    handleLikeButton(){
-        const that = this
+    // handleLikeButton(){
+    //     const that = this
 
-        this._count.querySelector('.like-button')
-            .addEventListener('click', function(){
-                if(!this.classList.contains('liked')){
-                    this.classList.add('liked');
-                    that.LikelistSubject.fire('add');
-                } else {
-                    this.classList.remove('liked');
-                    that.LikelistSubject.fire('remove');
-                }
-            })
-    }
+    //     this._count.querySelector('.like-button')
+    //         .addEventListener('click', function(){
+    //             if(!this.classList.contains('liked')){
+    //                 this.classList.add('liked');
+    //                 that.LikelistSubject.fire('add');
+    //             } else {
+    //                 this.classList.remove('liked');
+    //                 that.LikelistSubject.fire('remove');
+    //             }
+    //         })
+    // }
 }
 
 
