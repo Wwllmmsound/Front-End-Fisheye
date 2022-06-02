@@ -1,7 +1,8 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from './PhotographerModel.js'
 import { MediaFactory } from '../factory/MediaFactory.js'
-
+import { likesCounter } from '../utils/likesCounter.js'
+import { getDataByDate } from '../utils/getDataByDate.js'
 
 
 class PhotographerMedia {
@@ -122,6 +123,8 @@ class PhotographerMedia {
                 mediaDisplay.displayCard(media);
             }
         }
+        likesCounter();
+        getDataByDate();
     }
 }
 const photographerMedia = new PhotographerMedia();

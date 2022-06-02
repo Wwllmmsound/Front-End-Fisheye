@@ -278,7 +278,20 @@ main .photos-list figure .photo-info .photo-title {
   color: #901C1C;
 }
 
-main .photos-list figure .photo-info .like-button {
+main .photos-list figure .photo-info .like-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+}
+
+main .photos-list figure .photo-info .like-container .like-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -294,8 +307,8 @@ main .photos-list figure .photo-info .like-button {
   background-color: #FAFAFA;
 }
 
-main .photos-list figure .photo-info .like-button i {
-  color: #901C1C;
+main .photos-list figure .photo-info .like-container i {
+  font-size: 1.2rem;
 }
 
 .hourly-price {

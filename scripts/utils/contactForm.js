@@ -18,4 +18,3 @@ function sendMessage(){
     document.getElementById("sendModal").addEventListener("click", (e) => {e.preventDefault()})
     closeModal();
 }
-

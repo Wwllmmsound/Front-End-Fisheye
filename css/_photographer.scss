@@ -204,16 +204,22 @@ main{
                 .photo-title{
                     color: $primary-color;
                 }
-                .like-button{
+                .like-container{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    width: 60px;
-                    height: 30px;
-                    border: none;
-                    background-color: #FAFAFA;
+                    width: 20%;
+                    .like-button{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 60px;
+                        height: 30px;
+                        border: none;
+                        background-color: #FAFAFA;
+                    }
                     i{
-                        color: $primary-color;
+                        font-size: 1.2rem;
                     }
                 }
             }
