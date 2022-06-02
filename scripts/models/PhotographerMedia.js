@@ -2,7 +2,7 @@ import { PhotographerApi } from '../api/Api.js'
 import { PhotographerModel } from './PhotographerModel.js'
 import { MediaFactory } from '../factory/MediaFactory.js'
 import { likesCounter } from '../utils/likesCounter.js'
-import { getDataByDate } from '../utils/getDataByDate.js'
+import { sortingBy } from '../utils/sortingBy.js'
 
 
 class PhotographerMedia {
@@ -124,7 +124,7 @@ class PhotographerMedia {
             }
         }
         likesCounter();
-        getDataByDate();
+        sortingBy();
     }
 }
 const photographerMedia = new PhotographerMedia();
