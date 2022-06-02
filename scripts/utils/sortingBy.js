@@ -6,7 +6,7 @@ export function sortingBy(){
     const allPhotos = photographersApi.getMedia();
 
 
-
+// ________________________________DATE SORTING EVENT___________________________
     document.querySelector('#selectDate').addEventListener("click", (event) => {
         allPhotos.sort(function(a, b){
 
@@ -14,13 +14,13 @@ export function sortingBy(){
                 });
         console.log("Sorted by Date");
         });
-
+// ________________________________LIKES SORTING EVENT___________________________
     document.querySelector('#selectPopular').addEventListener("click", (event) => {
         allPhotos.sort((a, b) => b.age - a.age);
 
         console.log("Sorted by number of Likes");
         });
-
+// ________________________________TITLE SORTING EVENT___________________________
     document.querySelector('#selectTitle').addEventListener("click", (event) => {
         allPhotos.sort(function(a, b){
             let fa = a.title.toLowerCase();
