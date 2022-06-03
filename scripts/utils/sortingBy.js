@@ -36,9 +36,7 @@ export function sortingBy(){
                 });
         console.log("Sorted by Title");
         });
-    
 
-        
         console.log(allPhotos);
 }
 

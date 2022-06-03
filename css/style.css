@@ -345,16 +345,105 @@ main .photos-list figure .photo-info .like-container i {
   width: 100px;
 }
 
-.lightbox-modal {
-  max-width: 90%;
-  max-height: 90%;
+.Lightbox_bground {
+  background-color: rgba(0, 0, 0, 0.815);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.lightbox-modal .lightbox-img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 70vw;
-  height: 80vh;
+.Lightbox_bground .lightbox_modal {
+  z-index: 10;
+  overflow: auto;
+  -webkit-animation: lightboxIn .5s;
+          animation: lightboxIn .5s;
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_next,
+.Lightbox_bground .lightbox_modal .lightbox_prev {
+  border: none;
+  background: url(../assets/icons/arrow.svg) center center/32px 66px no-repeat;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  margin-top: -14px;
+  z-index: 11;
+  opacity: .2;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_prev {
+  right: auto;
+  left: -5%;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_next {
+  left: auto;
+  right: -5%;
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_close {
+  z-index: 12;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  top: 5%;
+  right: 3%;
+  opacity: .5;
+  cursor: pointer;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_next:hover,
+.Lightbox_bground .lightbox_modal .lightbox_prev:hover,
+.Lightbox_bground .lightbox_modal .lightbox_close:hover {
+  opacity: 1;
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_container img {
+  margin: 50px;
+  max-width: 100vw;
+  max-height: 90vh;
+}
+
+.Lightbox_bground .lightbox_modal .lightbox_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@-webkit-keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 body {
