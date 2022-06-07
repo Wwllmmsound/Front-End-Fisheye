@@ -1,43 +1,65 @@
 import { PhotographerApi } from '../api/Api.js'
 import { PhotographerMedia } from '../models/PhotographerMedia.js'
+import { MediaFactory } from '../factory/MediaFactory.js'
 
 export function sortingBy(){
     const photographersApi = new PhotographerApi('../data/photographers.json');
     const allPhotos = photographersApi.getMedia();
+    const mediaContainer = document.getElementById('photos-list')
+  
+    const options = document.querySelectorAll('.orderBy');
+  
+    var photographerMedia_ = new PhotographerMedia();
+    
+    // renvoie tous les médias pour le photographe demandé
+   
 
+   for(let option of options){
 
-// ________________________________DATE SORTING EVENT___________________________
-    document.querySelector('#selectDate').addEventListener("click", (event) => {
-        allPhotos.sort(function(a, b){
+    option.addEventListener("click", (event) =>{
+        var id_ =  document.getElementById("orderBy").id;
+        var text_ = document.getElementById("orderBy").value;
+     
+      console.log("click",text_)
+        let medias =   sort(text_);
+            // relance la fonction du display des medias
+         // afficher les medias sorted 
+    });
+      
+   }
 
-            return new Date(b.date) - new Date(a.date)
-                });
-        console.log("Sorted by Date");
-        });
-// ________________________________LIKES SORTING EVENT___________________________
-    document.querySelector('#selectPopular').addEventListener("click", (event) => {
-        allPhotos.sort((a, b) => b.age - a.age);
+   // selectionne l'ordre d'affichage des médias
+ async function sort(text) {
+    // vide le conteneur de médias
+  /// mediaContainer.innerHTML = ''
+    
+   console.log(photographerMedia_);
+   
+   var med =  await photographerMedia_.getMediaByPhotographer(photographerMedia_.id);
+   var name = await  photographerMedia_.getPhotographerNameById(med.photographerId);
 
-        console.log("Sorted by number of Likes");
-        });
-// ________________________________TITLE SORTING EVENT___________________________
-    document.querySelector('#selectTitle').addEventListener("click", (event) => {
-        allPhotos.sort(function(a, b){
-            let fa = a.title.toLowerCase();
-            let fb = b.title.toLowerCase();
+    console.log(med)
+    switch (text) {
+        case 'popular':
+            return med.sort(function(a, b) { 
+                
+                console.log("Sorted by number of Likes");
+                return b._likes - a._likes })
 
-            if (fa < fb) {
-                return -1;
-            }
-            if (fa > fb) {
-                return 1;
-            }
-            return 0;
-                });
-        console.log("Sorted by Title");
-        });
-
-        console.log(allPhotos);
+        case 'date':
+            return med.sort(function(a, b){
+                return new Date(b._date) - new Date(a._date)
+                    });
+            console.log("Sorted by Date");
+        case 'title':
+            return med.sort(function(a, b) { 
+                console.log("Sorted by Title");
+                return (a.title > b.title) ? 1 : -1 ;
+               
+            })
+                // affichage par défaut
+        default:
+            return med
+        }
+    }
 }
-
-// Array.from(allPhotos).sort()
