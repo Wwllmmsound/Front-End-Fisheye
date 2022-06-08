@@ -1,6 +1,7 @@
 import { PhotographerMedia } from './PhotographerMedia.js'
 
 const videoSection = document.querySelector("video");
+
 class PhotographerVideo {
 
 
@@ -11,8 +12,6 @@ class PhotographerVideo {
         this._video = this.media.video,
         this.LikelistSubject = LikelistSubject
 
-        console.log("*********************" + name);
-        console.log(element)
     }
 
     PhotographerVideoList() {
