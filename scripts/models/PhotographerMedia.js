@@ -3,7 +3,7 @@ import { PhotographerModel } from './PhotographerModel.js'
 import { MediaFactory } from '../factory/MediaFactory.js'
 import { likesCounter } from '../utils/likesCounter.js'
 import { sortingBy } from '../utils/sortingBy.js'
-import { Lightbox } from '../decorator/Lightbox.js'
+// import { Lightbox } from '../decorator/Lightbox.js'
 
 class PhotographerMedia {
     constructor(photographerId, title, image, video, likes, date, price, name) {
@@ -71,7 +71,12 @@ class PhotographerMedia {
     // ________________________FUNCTION CREATING THE PHOTOS GRID______________________
 
 
+    async displayPhotosCard(media){
+        const photosList = this.PhotographerPhotoList(media);
+        const photosSection = document.querySelector("#photosList");
 
+        photosSection.appendChild(photosList);
+    }
 
     async getPhotographerNameById(id) {
 
@@ -98,6 +103,17 @@ class PhotographerMedia {
         return name;
     }
 
+    async getMediaByPhotographer(id){
+        const allPhotos = await this.photographersApi.getMedia();
+    	let tab = [];
+    	for(let media of allPhotos){
+            if(media.photographerId == this._id){
+        		tab.push(media);
+        	}
+        }
+    	return tab
+    }
+
     async init() {
         const allPhotos = await this.photographersApi.getMedia();
         const listPhotos = allPhotos.map(media => new PhotographerMedia(
@@ -120,6 +136,7 @@ class PhotographerMedia {
                 } else {
                     this.setImage(media._image);
                 }
+                this.setLikes(media.likes);
                 mediaDisplay.displayCard(media);
             }
         }
