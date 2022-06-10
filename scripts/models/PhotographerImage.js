@@ -32,6 +32,8 @@ class PhotographerImage {
           const photosSection = document.querySelector("#photosList");
 
         photosSection.appendChild(photosList);
+
+        
     }
 
 

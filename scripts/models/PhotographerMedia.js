@@ -92,7 +92,6 @@ class PhotographerMedia {
             photographer.price,
             photographer.id
         ))
-        console.log(listPhotographers);
 
         for (let photographer of listPhotographers) {
             if (photographer.id == id) {
@@ -108,7 +107,7 @@ class PhotographerMedia {
     	let tab = [];
     	for(let media of allPhotos){
             if(media.photographerId == this._id){
-        		tab.push(media);
+        	    tab.push(media);
         	}
         }
     	return tab

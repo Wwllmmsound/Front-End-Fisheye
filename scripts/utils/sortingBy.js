@@ -1,6 +1,7 @@
-import { PhotographerApi } from '../api/Api.js'
-import { PhotographerMedia } from '../models/PhotographerMedia.js'
-import { MediaFactory } from '../factory/MediaFactory.js'
+import { PhotographerApi } from '../api/Api.js';
+import { PhotographerMedia } from '../models/PhotographerMedia.js';
+import { MediaFactory } from '../factory/MediaFactory.js';
+import { SortFactory } from '../factory/SortFactory.js';
 
 export function sortingBy(){
     const photographersApi = new PhotographerApi('../data/photographers.json');
@@ -20,16 +21,21 @@ export function sortingBy(){
         var text_ = document.getElementById("orderBy").value;
         let medias = sort(text_);
       console.log("click",text_);
+        console.log(medias);
+        
         
             // relance la fonction du display des medias
          // afficher les medias sorted
     });
    }
 
+
+
+
    // selectionne l'ordre d'affichage des médias
- async function sort(text_) {
+    async function sort(text_) {
     // vide le conteneur de médias
-  /// mediaContainer.innerHTML = ''
+    // mediaContainer.innerHTML = ''
 
    console.log(photographerMedia_);
 
@@ -37,31 +43,35 @@ export function sortingBy(){
    var name = await  photographerMedia_.getPhotographerNameById(med.photographerId);
 
     console.log(med)
-    switch (text_) {
-        case 'popular':
-            return med.sort(function(a, b) {
+        switch (text_) {
+            case 'popular':
+                return med.sort(function(a, b) {
 
-                console.log("Sorted by number of Likes");
-                return b._likes - a._likes });
-            break;
+                    console.log("Sorted by number of Likes");
 
-        case 'date':
-            return med.sort(function(a, b){
+                    return b._likes - a._likes });
+                break;
 
-                console.log("Sorted by Date");
-                return new Date(b._date) - new Date(a._date)
-                    });
-            break;
+            case 'date':
+                return med.sort(function(a, b){
 
-        case 'title':
-            return med.sort(function(a, b) {
-                console.log("Sorted by Title");
-                return (a.title > b.title) ? 1 : -1;
-            });
-            break;
-                // affichage par défaut
-        default:
-            return med
+                    console.log("Sorted by Date");
+                    return new Date(b._date) - new Date(a._date)
+                        });
+                break;
+
+            case 'title':
+                return med.sort(function(a, b) {
+                    console.log("Sorted by Title");
+                    return (a.title > b.title) ? 1 : -1;
+                });
+                break;
+                    // affichage par défaut
+            default:
+                return med
         }
+        var sortMedia = new sortFactory(med);
+        sortMedia;
+
     }
 }
