@@ -54,6 +54,7 @@ export function sortingBy(){
         media.date,
         media.price
     ))
+    mediaContainer.innerHTML = newListPhotos;
 
     // var sortMedia = new SortFactory(med);
     //     mediaContainer.innerHTML = med;
