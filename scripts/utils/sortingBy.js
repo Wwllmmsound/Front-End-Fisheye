@@ -6,7 +6,7 @@ import { SortFactory } from '../factory/SortFactory.js';
 export function sortingBy(){
     const photographersApi = new PhotographerApi('../data/photographers.json');
     const allPhotos = photographersApi.getMedia();
-    const mediaContainer = document.getElementById('photos-list');
+    const mediaContainer = document.getElementById('photosList');
 
     const options = document.querySelectorAll('.orderBy');
 
@@ -20,22 +20,24 @@ export function sortingBy(){
         var id_ =  document.getElementById("orderBy").id;
         var text_ = document.getElementById("orderBy").value;
         let medias = sort(text_);
-      console.log("click",text_);
-        console.log(medias);
-        
-        
-            // relance la fonction du display des medias
-         // afficher les medias sorted
+            console.log("click",text_);
+            console.log(medias);
+
+        // relance la fonction du display des medias
+        // afficher les medias sorted
     });
    }
 
-
-
-
    // selectionne l'ordre d'affichage des médias
+
+
     async function sort(text_) {
+
+
     // vide le conteneur de médias
-    // mediaContainer.innerHTML = ''
+    mediaContainer.innerHTML = '';
+
+    
 
    console.log(photographerMedia_);
 
@@ -43,6 +45,18 @@ export function sortingBy(){
    var name = await  photographerMedia_.getPhotographerNameById(med.photographerId);
 
     console.log(med)
+    const newListPhotos = med.map(media => new PhotographerMedia(
+        media.photographerId,
+        media.title,
+        media.image,
+        media.video,
+        media.likes,
+        media.date,
+        media.price
+    ))
+
+    // var sortMedia = new SortFactory(med);
+    //     mediaContainer.innerHTML = med;
         switch (text_) {
             case 'popular':
                 return med.sort(function(a, b) {
@@ -70,8 +84,5 @@ export function sortingBy(){
             default:
                 return med
         }
-        var sortMedia = new sortFactory(med);
-        sortMedia;
-
     }
 }
