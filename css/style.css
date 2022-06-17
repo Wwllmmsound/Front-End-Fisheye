@@ -150,6 +150,20 @@ form button {
   padding: 0 40px;
 }
 
+@media screen and (max-width: 970px) {
+  .photograph-header {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .photograph-header {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
 .photograph-header .photograph-contact {
   padding: 0;
   margin: 0;
@@ -168,6 +182,12 @@ form button {
   color: #D3573C;
 }
 
+@media screen and (max-width: 650px) {
+  .photograph-header .profile_info .profile_name {
+    font-size: 40px;
+  }
+}
+
 .photograph-header .profile_info .profile_origine {
   color: #901C1C;
   font-weight: 500;
@@ -181,21 +201,55 @@ form button {
      object-fit: cover;
 }
 
-main {
-  margin: 20px 100px;
+@media screen and (max-width: 970px) {
+  .photograph-header img {
+    margin-top: 15px;
+  }
 }
 
-main .preferences {
+main {
+  margin: 20px 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 240px;
+  padding: 0 40px;
+}
+
+@media screen and (max-width: 865px) {
+  main {
+    margin-top: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  main {
+    margin-top: 220px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+main .preferences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
 main .preferences .orderBy {
@@ -210,6 +264,7 @@ main .preferences .orderBy {
   background-color: #901C1C;
   border-radius: 5px;
   margin-bottom: 20px;
+  margin-left: 10px;
   cursor: pointer;
 }
 

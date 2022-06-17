@@ -104,13 +104,41 @@ class PhotographerMedia {
 
     async getMediaByPhotographer(id){
         const allPhotos = await this.photographersApi.getMedia();
+        const listPhotos = allPhotos.map(media => new PhotographerMedia(
+            media.photographerId,
+            media.title,
+            media.image,
+            media.video,
+            media.likes,
+            media.date,
+            media.price
+        ))
     	let tab = [];
-    	for(let media of allPhotos){
+
+    	for(let media of listPhotos){
             if(media.photographerId == this._id){
         	    tab.push(media);
         	}
         }
     	return tab
+    }
+
+    async initMediaDisplay(medias, name){
+        const photosSection = document.querySelector("#photosList");
+        // photosSection.innerHTML ="";
+
+        let tabMedia = await medias;
+
+        for(let media of tabMedia){
+            const display = new MediaFactory(media, name);
+            if (media._video != undefined) {
+                this.setVideo(media._video);
+            } else {
+                this.setImage(media._image);
+            }
+            display.displayCard();
+            likesCounter();
+        }
     }
 
     async init() {

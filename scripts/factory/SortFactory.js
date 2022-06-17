@@ -1,6 +1,5 @@
 import { PhotographerVideo } from '../models/PhotographerVideo.js'
 import { PhotographerImage } from '../models/PhotographerImage.js'
-import { sortingBy } from '../utils/sortingBy.js'
 
 class SortFactory {
     constructor(element, med) {

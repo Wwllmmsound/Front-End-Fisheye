@@ -12,7 +12,7 @@ class PhotographerImage {
 
         const photographerPhoto = `
         <img src="../assets/photographers/${this._name}/${this._image}"
-        alt="${this.media.title}" aria-label="Photo">
+        alt="${this.media.title}" aria-label="Photo" id="item">
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div class="like-container">
@@ -32,7 +32,7 @@ class PhotographerImage {
           const photosSection = document.querySelector("#photosList");
 
         photosSection.appendChild(photosList);
-
+        
 
     }
 

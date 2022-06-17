@@ -15,7 +15,7 @@ export function likesCounter(){
       const totalOfLike = document.getElementById("totalOfLike");
          // nombre de like total
      // convert string to number
-     //(or you can add +totalOfLike.textContent)
+     //(oCr you can add +totalOfLike.textontent)
       let currentNbrLike = Number(totalOfLike.textContent);
 
       currentHeartIcon.classList.toggle("active");
@@ -25,7 +25,7 @@ export function likesCounter(){
         currentHeartIcon.classList.contains("active") &&
         currentHeartValue.classList.contains("active")
         ) {
-          //change color 
+          //change color
         currentHeartIcon.style.color = "red";
         currentlikes.textContent++;
 
