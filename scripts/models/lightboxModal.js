@@ -22,16 +22,13 @@ class lightboxModal {
         lightboxBG.innerHTML = selectedItem;
         return lightboxBG;
     }
-    
+
     displayModal(media) {
-      
-       
+
         const itemList = this.lightboxDisplay(media);
-          const modal = document.querySelector("body");
-
-          modal.appendChild(itemList);
-        
-
+        const modal = document.querySelector("body");
+        modal.appendChild(itemList);
     }
-
 }
+
+export { lightboxModal }

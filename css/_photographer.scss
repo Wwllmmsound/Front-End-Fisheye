@@ -217,6 +217,9 @@ main{
                 object-fit: cover;
                 margin: 10 100px;
                 border-radius: 8px;
+                :hover{
+                    cursor: pointer;
+                }
             }
             video{
                 width: 100%;
@@ -240,6 +243,9 @@ main{
                     justify-content: space-between;
                     align-items: center;
                     width: 20%;
+                    :hover{
+                        cursor: pointer;
+                    }
                     .like-button{
                         display: flex;
                         justify-content: space-between;

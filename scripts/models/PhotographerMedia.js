@@ -3,7 +3,7 @@ import { PhotographerModel } from './PhotographerModel.js'
 import { MediaFactory } from '../factory/MediaFactory.js'
 import { likesCounter } from '../utils/likesCounter.js'
 import { sortingBy } from '../utils/sortingBy.js'
-// import { Lightbox } from '../decorator/Lightbox.js'
+import { lightbox } from '../utils/lightbox.js'
 
 class PhotographerMedia {
     constructor(photographerId, title, image, video, likes, date, price, name) {
@@ -138,6 +138,7 @@ class PhotographerMedia {
             }
             display.displayCard();
             likesCounter();
+            lightbox();
         }
     }
 
