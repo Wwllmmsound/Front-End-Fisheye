@@ -1,13 +1,18 @@
 class lightboxModal {
-    constructor(id, name){
+    constructor(id, title, image){
         this.id = id
-        this._name = name
-        this._image = this.media.image
+        this._title = title
+        this._image = image
     }
 
     lightboxDisplay() {
         const lightboxBG = document.createElement("div");
 
+        for(let id of listPhotos){
+            if(media.photographerId == this._id){
+                this._image
+        	}
+        }
         const selectedItem = `
         <div id="lightboxModal" class="lightbox_modal" aria-hidden="true">
             <button class="lightbox_close"><img src="../assets/icons/close.svg" alt="Fermer Modale"></button>
@@ -15,7 +20,7 @@ class lightboxModal {
             <button class="lightbox_prev" alt="Flèche gauche"></button>
             <div class="lightbox_container">
                 <img src="${this._image}" 
-                alt="${this._name}" aria-label="Image agrandie" class="lightbox-img">
+                alt="${this._title}" aria-label="Image agrandie" class="lightbox-img">
             </div>
         </div>
         `;

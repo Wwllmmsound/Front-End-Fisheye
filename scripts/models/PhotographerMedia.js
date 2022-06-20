@@ -102,7 +102,7 @@ class PhotographerMedia {
         return name;
     }
 
-    async getMediaByPhotographer(id){
+    async getMediaByPhotographer(){
         const allPhotos = await this.photographersApi.getMedia();
         const listPhotos = allPhotos.map(media => new PhotographerMedia(
             media.photographerId,
@@ -138,7 +138,7 @@ class PhotographerMedia {
             }
             display.displayCard();
             likesCounter();
-            lightbox();
+            
         }
     }
 
@@ -170,6 +170,7 @@ class PhotographerMedia {
         }
         likesCounter();
         sortingBy();
+        lightbox();
     }
 }
 const photographerMedia = new PhotographerMedia();

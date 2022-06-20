@@ -7,14 +7,18 @@ export function lightbox(){
     const photographersApi = new PhotographerApi('../data/photographers.json');
     const allPhotos = photographersApi.getMedia();
     const mediaContainer = document.getElementById('photosList');
-    const item = document.querySelector('.item');
+    const pictures = document.querySelectorAll('.item');
     var photographerMedia_ = new PhotographerMedia();
 
 
-    item.addEventListener("click", (e) => {
-        photographerMedia_.getMediaByPhotographer(photographerMedia_.image);
+    pictures.forEach(element => {
+        element.addEventListener("click", (e) => {
 
-        console.log(photographerMedia_.image);
-    })
+            console.log(e.target.id);
+            
+            let medias = photographerMedia_.getMediaByPhotographer();
+            let lightbox = new lightboxModal(id, title);
+            lightbox.displayModal(medias);
+        })
+    });
 }
-

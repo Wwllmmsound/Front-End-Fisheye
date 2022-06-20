@@ -8,8 +8,10 @@ class MediaFactory {
             return new PhotographerImage(name, element)
         } else {
             throw 'Unknown type format'
-        }
+        };
     }
+
+    
 }
 
 export { MediaFactory };

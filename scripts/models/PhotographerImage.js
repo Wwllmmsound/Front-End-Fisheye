@@ -12,7 +12,7 @@ class PhotographerImage {
 
         const photographerPhoto = `
         <img src="../assets/photographers/${this._name}/${this._image}"
-        alt="${this.media.title}" aria-label="Photo" id="item">
+        alt="${this.media.title}" aria-label="Photo" id=${this.media.id} class="item">
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div class="like-container">
@@ -20,7 +20,7 @@ class PhotographerImage {
                 <button id="like-button" class="like-button"><i class="fas fa-heart" aria-hidden="true"></i></button>
             </div>
         </figcaption>
-    `;
+    `; 
         figure.innerHTML = photographerPhoto;
         return figure;
     }
