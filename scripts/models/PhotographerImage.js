@@ -12,7 +12,7 @@ class PhotographerImage {
 
         const photographerPhoto = `
         <img src="../assets/photographers/${this._name}/${this._image}"
-        alt="${this.media.title}" aria-label="Photo" id=${this.media.id} class="item">
+        alt="${this.media.title}" aria-label="Photo" id=${this.media.imageId} class="item">
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div class="like-container">

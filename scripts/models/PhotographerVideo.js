@@ -20,7 +20,7 @@ class PhotographerVideo {
         const photographerPhoto = `
         <video controls>
             <source src="../assets/photographers/${this._name}/${this.media.video}" 
-            alt="${this.media.title}" aria-label="Video" type="video/mp4" id=${this.media.id} class="item">
+            alt="${this.media.title}" aria-label="Video" type="video/mp4" id=${this.media.imageId} class="item">
         </video>
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>

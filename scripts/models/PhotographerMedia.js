@@ -6,7 +6,7 @@ import { sortingBy } from '../utils/sortingBy.js'
 import { lightbox } from '../utils/lightbox.js'
 
 class PhotographerMedia {
-    constructor(photographerId, title, image, video, likes, date, price, name) {
+    constructor(photographerId, title, image, video, likes, date, price, id, name) {
         this._id = (new URL(document.location)).searchParams.get("id"),
             this._photographerId = photographerId,
             this._title = title,
@@ -16,7 +16,8 @@ class PhotographerMedia {
             this._date = date,
             this._price = price,
             this._name = name,
-            this.photographersApi = new PhotographerApi('../data/photographers.json')
+            this.photographersApi = new PhotographerApi('../data/photographers.json'),
+            this.imageId = id
     }
     get id() {
         return this._id
@@ -151,7 +152,8 @@ class PhotographerMedia {
             media.video,
             media.likes,
             media.date,
-            media.price
+            media.price,
+            media.id
         ))
 
         for (let media of listPhotos) {
@@ -170,7 +172,7 @@ class PhotographerMedia {
         }
         likesCounter();
         sortingBy();
-        lightbox();
+        lightbox(this.name, this.photographerId);
     }
 }
 const photographerMedia = new PhotographerMedia();
