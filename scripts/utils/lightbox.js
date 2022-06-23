@@ -2,7 +2,7 @@ import { lightboxModal } from "../models/lightboxModal.js";
 import { PhotographerApi } from "../api/Api.js";
 import { PhotographerMedia } from "../models/PhotographerMedia.js";
 
-export function lightbox(photographerName, photographerId){
+export function lightbox(){
 
     const photographersApi = new PhotographerApi('../data/photographers.json');
     const allPhotos = photographersApi.getMedia();
@@ -13,19 +13,22 @@ export function lightbox(photographerName, photographerId){
 
     pictures.forEach(element => {
         element.addEventListener("click", (e) => {
-
-            console.log(e.target.id);
-
             // let medias = photographerMedia_.getMediaByPhotographer();
             // let media;
             let mediaId = e.currentTarget.id;
+            console.log(mediaId);
             // for(let selectedMedia of medias){
             //     if(selectedMedia.imageId == mediaId){
             //         media = selectedMedia;
             //     }
             // }
             let title = "";
-            let lightbox = new lightboxModal(mediaId, title, photographerName);
+            for (let media of mediaContainer) {
+                if (mediaId == id) {
+                    title = media.title;
+                }
+            }
+            let lightbox = new lightboxModal(mediaId, title);
             lightbox.displayModal();
         })
     });

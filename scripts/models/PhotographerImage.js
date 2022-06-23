@@ -1,9 +1,9 @@
 class PhotographerImage {
 
     constructor(name, element, LikelistSubject) {
-        this.media = element
-        this._name = name
-        this._image = this.media.image
+        this.media = element;
+        this._name = name;
+        this._image = this.media.image;
         this.LikelistSubject = LikelistSubject
     }
 
@@ -20,26 +20,18 @@ class PhotographerImage {
                 <button id="like-button" class="like-button"><i class="fas fa-heart" aria-hidden="true"></i></button>
             </div>
         </figcaption>
-    `; 
+    `;
         figure.innerHTML = photographerPhoto;
         return figure;
     }
-    
+
     displayCard(media) {
-      
-       
         const photosList = this.PhotographerPhotoList(media);
           const photosSection = document.querySelector("#photosList");
 
         photosSection.appendChild(photosList);
-        
 
     }
-
-
-
 }
-
-
 
 export { PhotographerImage }

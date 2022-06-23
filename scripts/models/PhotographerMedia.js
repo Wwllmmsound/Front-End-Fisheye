@@ -15,9 +15,9 @@ class PhotographerMedia {
             this._likes = likes,
             this._date = date,
             this._price = price,
-            this._name = name,
+            this.imageId = id,
             this.photographersApi = new PhotographerApi('../data/photographers.json'),
-            this.imageId = id
+            this._name = name
     }
     get id() {
         return this._id
@@ -126,7 +126,6 @@ class PhotographerMedia {
 
     async initMediaDisplay(medias, name){
         const photosSection = document.querySelector("#photosList");
-        // photosSection.innerHTML ="";
 
         let tabMedia = await medias;
 
@@ -172,7 +171,7 @@ class PhotographerMedia {
         }
         likesCounter();
         sortingBy();
-        lightbox(this.name, this.photographerId);
+        lightbox(this.title, this.imageId);
     }
 }
 const photographerMedia = new PhotographerMedia();

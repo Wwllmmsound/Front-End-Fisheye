@@ -108,7 +108,7 @@ form {
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    @media screen and (max-width: 970px){
+    @media screen and (max-width: 1050px){
         margin-left: 50px;
         margin-right: 50px;
     };
@@ -147,7 +147,7 @@ form {
         width: 200px;
         border-radius: 100px;
         object-fit: cover;
-        @media screen and (max-width: 970px){
+        @media screen and (max-width: 1050px){
             margin-top: 15px;
         };
     }
@@ -210,6 +210,9 @@ main{
         figure{
             margin: 20px 20px;
             flex: 3 3 380px;
+            :hover{
+                cursor: pointer;
+            }
             img{
                 width: 100%;
                 height: 250px;
@@ -217,9 +220,6 @@ main{
                 object-fit: cover;
                 margin: 10 100px;
                 border-radius: 8px;
-                :hover{
-                    cursor: pointer;
-                }
             }
             video{
                 width: 100%;

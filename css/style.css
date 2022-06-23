@@ -150,7 +150,7 @@ form button {
   padding: 0 40px;
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1050px) {
   .photograph-header {
     margin-left: 50px;
     margin-right: 50px;
@@ -201,7 +201,7 @@ form button {
      object-fit: cover;
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1050px) {
   .photograph-header img {
     margin-top: 15px;
   }
@@ -295,6 +295,10 @@ main .photos-list figure {
           flex: 3 3 380px;
 }
 
+main .photos-list figure :hover {
+  cursor: pointer;
+}
+
 main .photos-list figure img {
   width: 100%;
   height: 250px;
@@ -303,10 +307,6 @@ main .photos-list figure img {
      object-fit: cover;
   margin: 10 100px;
   border-radius: 8px;
-}
-
-main .photos-list figure img :hover {
-  cursor: pointer;
 }
 
 main .photos-list figure video {
