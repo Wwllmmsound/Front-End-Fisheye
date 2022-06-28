@@ -1,5 +1,7 @@
 import { PhotographerVideo } from '../models/PhotographerVideo.js'
 import { PhotographerImage } from '../models/PhotographerImage.js'
+import { LightboxModal } from "../models/LightboxModal.js";
+
 class MediaFactory {
     constructor(element, name) {
         if (element._video != undefined) {

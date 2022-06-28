@@ -8,16 +8,16 @@ import { lightbox } from '../utils/lightbox.js'
 class PhotographerMedia {
     constructor(photographerId, title, image, video, likes, date, price, id, name) {
         this._id = (new URL(document.location)).searchParams.get("id"),
-            this._photographerId = photographerId,
-            this._title = title,
-            this._image = image,
-            this._video = video,
-            this._likes = likes,
-            this._date = date,
-            this._price = price,
-            this.imageId = id,
-            this.photographersApi = new PhotographerApi('../data/photographers.json'),
-            this._name = name
+        this._photographerId = photographerId,
+        this._title = title,
+        this._image = image,
+        this._video = video,
+        this._likes = likes,
+        this._date = date,
+        this._price = price,
+        this.imageId = id,
+        this.photographersApi = new PhotographerApi('../data/photographers.json'),
+        this._name = name
     }
     get id() {
         return this._id
@@ -138,7 +138,6 @@ class PhotographerMedia {
             }
             display.displayCard();
             likesCounter();
-            
         }
     }
 
