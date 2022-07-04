@@ -75,7 +75,7 @@
 
 import { MediaFactory } from '../factory/MediaFactory.js'
 
-    const lightboxhtmlmodal = document.querySelector(".ltighbox_modal");
+    const lightboxhtmlmodal = document.querySelector(".lightbox_bground");
 
 
 class LightboxModal {
@@ -91,61 +91,20 @@ class LightboxModal {
             <button class="lightbox_next" alt="Flèche Droite"></button>
             <button class="lightbox_prev" alt="Flèche gauche"></button>
         `;
-        lightboxBG.classList.add('lightbox_bground');
+        lightboxBG.classList.add('lightbox_modal');
         lightboxBG.innerHTML = selectedItem;
-
+        console.log(lightboxBG);
         return lightboxBG;
     }
 
     // trouver un média par son id
 	getMediaById(idMedia,medias){
-        console.log(medias)
+        console.log(medias);
 	    return medias.find(element => element.imageId == idMedia)
 	}
 
-    async displayModal(idMedia, medias, name) {
-        this.currentMedia = this.getMediaById(idMedia, medias);
-        const image =  `<img src="../assets/photographers/${this._name}/${this.currentMedia.image}"
-        alt="${this.currentMedia.title}" aria-label="Photo" id=${this.currentMedia.imageId} class="item">`
-        const  video =`<video controls>
-        <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
-        alt="${this.currentMedia.title}" aria-label="Video" type="video/mp4" id=${this.currentMedia.imageId} class="item">
-    </video>`;
-       const display = new MediaFactory(this.currentMedia, name);
-       const div =   document.createElement('div');
-       div.classList.add('lightbox_container');
-       const ligthBoxContainer = this.lightboxDisplay();
 
-       if (this.currentMedia.video == undefined){
-        let img = document.createElement('img');
-        img.classList.add('lightbox-section__view__picture');
-        img.innerHTML = image;
-
-        div.appendChild(img);
-        ligthBoxContainer.appendChild(div);
-
-        } else {
-            const mp4 = document.createElement('video');
-            mp4.classList.add('lightbox-section__view__picture');
-            mp4.innerHTML = video;
-            div.appendChild(mp4);
-            ligthBoxContainer.appendChild(div);
-        }
-
-        const pictures = document.querySelectorAll('.item');
-        pictures.forEach(element => {
-            element.addEventListener("click", (e) => {
-                console.log(lightboxhtmlmodal);
-                lightboxhtmlmodal.appendChild(ligthBoxContainer);
-                lightboxhtmlmodal.classList.add("active");
-                lightboxhtmlmodal.setAttribute("aria-hidden", "false");
-                lightboxhtmlmodal.style.display = "block";
-            })
-        })
-    }
-    
-    
-
+    // Gestion de la navigation lightbox
     next(){
         let index = this.currentMedia.findIndex(element => element.id == this.currentMedia.id);
         if(index == this.currentMedia.length - 1) {
@@ -165,16 +124,58 @@ class LightboxModal {
     }
 
     close(){
-        document.querySelector(".lightbox_close").style.display = "none";
+        lightboxhtmlmodal.setAttribute("aria-hidden", "true");
+        lightboxhtmlmodal.style.display = "none";
     }
 
-    eventManager(){
+    async eventManager(){
         document.querySelector(".lightbox_next")
-                .addEventListener("click", () => {this.next()});
+                .addEventListener("click", () => {this.next();
+                console.log("next");
+            });
         document.querySelector(".lightbox_prev")
                 .addEventListener("click", () => {this.previous()});
         document.querySelector(".lightbox_close")
                 .addEventListener("click", () => {this.close()});
+    }
+
+    async displayModal(idMedia, medias, name) {
+        console.log(name);
+        this.currentMedia = this.getMediaById(idMedia, medias);
+        console.log(this.currentMedia);
+        const image =  `<img src="../assets/photographers/${name}/${this.currentMedia.image}"
+        alt="${this.currentMedia.title}" aria-label="Photo" id=${this.currentMedia.imageId} class="item">`
+        const  video =`<video controls>
+        <source src="../assets/photographers/${name}/${this.currentMedia.video}" 
+        alt="${this.currentMedia.title}" aria-label="Video" type="video/mp4" id=${this.currentMedia.imageId} class="item">
+    </video>`;
+       const display = new MediaFactory(this.currentMedia, name);
+       const div =   document.createElement('div');
+       div.classList.add('lightbox_container');
+       const ligthBoxContainer = this.lightboxDisplay();
+
+       if (this.currentMedia.video == undefined){
+        let img = document.createElement('div');
+        img.classList.add('lightbox-img');
+        img.innerHTML = image;
+
+        div.appendChild(img);
+        ligthBoxContainer.appendChild(div);
+
+        } else {
+            const mp4 = document.createElement('div');
+            mp4.classList.add('lightbox-img');
+            mp4.innerHTML = video;
+            div.appendChild(mp4);
+            ligthBoxContainer.appendChild(div);
+        }
+        console.log(ligthBoxContainer);
+        console.log(lightboxhtmlmodal);
+        lightboxhtmlmodal.appendChild(ligthBoxContainer);
+        // lightboxhtmlmodal.classList.add("active");
+        lightboxhtmlmodal.setAttribute("aria-hidden", "false");
+        lightboxhtmlmodal.style.display = "block";
+        eventManager();
     }
 }
 

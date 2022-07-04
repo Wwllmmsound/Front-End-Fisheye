@@ -3,7 +3,7 @@ import { PhotographerModel } from './PhotographerModel.js'
 import { MediaFactory } from '../factory/MediaFactory.js'
 import { likesCounter } from '../utils/likesCounter.js'
 import { sortingBy } from '../utils/sortingBy.js'
-import { lightbox } from '../utils/lightbox.js'
+import { LightboxModal } from '../models/LightboxModal.js'
 
 class PhotographerMedia {
     constructor(photographerId, title, image, video, likes, date, price, id, name) {
@@ -95,7 +95,7 @@ class PhotographerMedia {
         ))
 
         for (let photographer of listPhotographers) {
-            if (photographer.id == id) {
+            if (photographer.id == this._id) {
                 name = photographer.name;
             }
         }
@@ -112,7 +112,8 @@ class PhotographerMedia {
             media.video,
             media.likes,
             media.date,
-            media.price
+            media.price,
+            media.id
         ))
     	let tab = [];
 
@@ -139,6 +140,27 @@ class PhotographerMedia {
             display.displayCard();
             likesCounter();
         }
+    }
+
+    async displayligthBox() {
+        const pictures = document.querySelectorAll(".item");
+        pictures.forEach((element) => {
+          element.addEventListener("click", async (e) => {
+            console.log(e.target.id);
+
+            const background = document.getElementById("lightboxModal");
+            background.style.display = "block";
+            background.setAttribute("aria-hidden", "false");
+            const medias = await this.getMediaByPhotographer();
+            let photographerName = await this.getPhotographerNameById();
+            console.log(photographerName);
+            let mediaId = e.target.id;
+            console.log(mediaId);
+            let lightbox = new LightboxModal(medias, photographerName);
+            console.log(lightbox);
+            lightbox.displayModal(mediaId, medias, photographerName);
+            });
+        });
     }
 
     async init() {
@@ -170,7 +192,7 @@ class PhotographerMedia {
         }
         likesCounter();
         sortingBy();
-        lightbox(this.title, this.imageId);
+        this.displayligthBox();
     }
 }
 const photographerMedia = new PhotographerMedia();

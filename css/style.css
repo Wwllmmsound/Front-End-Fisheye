@@ -415,6 +415,7 @@ main .photos-list figure .photo-info .like-container i {
   left: 0;
   width: 100%;
   height: 100%;
+  display: none;
 }
 
 .lightbox_bground .lightbox_modal {
@@ -548,6 +549,7 @@ h1 {
       grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
+  width: 100%;
 }
 
 .photographer_section article {
