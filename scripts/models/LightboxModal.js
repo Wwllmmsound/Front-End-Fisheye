@@ -83,6 +83,7 @@ class LightboxModal {
         this.currentMedia = {}
         this._name = name
         this._media = media
+        this.eventManager()
     }
     lightboxDisplay() {
         const lightboxBG = document.createElement("div");
@@ -108,7 +109,7 @@ class LightboxModal {
     next(){
         let index = this.currentMedia.findIndex(element => element.id == this.currentMedia.id);
         if(index == this.currentMedia.length - 1) {
-            this.XXXXXXX = this.currentMedia[0];
+            this.getMediaById() = this.currentMedia[0];
         }
         this.currentMedia = this.currentMedia[index + 1];
         this.displayModal();
@@ -117,7 +118,7 @@ class LightboxModal {
     previous(){
         let index = this.currentMedia.findIndex(element => element.id == this.currentMedia.id);
         if(index == 0) {
-            this.XXXXXXX = this.currentMedia[this.currentMedia.length - 1];
+            this.getMediaById() = this.currentMedia[this.currentMedia.length - 1];
         }
         this.currentMedia = this.currentMedia[index - 1];
         this.displayModal();
@@ -128,7 +129,7 @@ class LightboxModal {
         lightboxhtmlmodal.style.display = "none";
     }
 
-    async eventManager(){
+    eventManager(){
         document.querySelector(".lightbox_next")
                 .addEventListener("click", () => {this.next();
                 console.log("next");
@@ -175,7 +176,6 @@ class LightboxModal {
         // lightboxhtmlmodal.classList.add("active");
         lightboxhtmlmodal.setAttribute("aria-hidden", "false");
         lightboxhtmlmodal.style.display = "block";
-        eventManager();
     }
 }
 
