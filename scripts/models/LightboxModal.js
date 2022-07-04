@@ -131,13 +131,13 @@ class LightboxModal {
 
     eventManager(){
         document.querySelector(".lightbox_next")
-                .addEventListener("click", () => {this.next();
+                .addEventListener('click', () => {this.next();
                 console.log("next");
             });
         document.querySelector(".lightbox_prev")
-                .addEventListener("click", () => {this.previous()});
+                .addEventListener('click', () => {this.previous()});
         document.querySelector(".lightbox_close")
-                .addEventListener("click", () => {this.close()});
+                .addEventListener('click', () => {this.close()});
     }
 
     async displayModal(idMedia, medias, name) {
