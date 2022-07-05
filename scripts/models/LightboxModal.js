@@ -88,9 +88,9 @@ class LightboxModal {
     lightboxDisplay() {
         const lightboxBG = document.createElement("div");
         const selectedItem = `
-            <button class="lightbox_close"><img src="../assets/icons/close.svg" alt="Fermer Modale"></button>
-            <button class="lightbox_next" alt="Flèche Droite"></button>
-            <button class="lightbox_prev" alt="Flèche gauche"></button>
+            <button class="lightbox_close" id="lightBoxClose"><img src="../assets/icons/close.svg" alt="Fermer Modale"></button>
+            <button class="lightbox_next" id="lightBoxNext" alt="Flèche Droite"></button>
+            <button class="lightbox_prev" id="lightBoxPrev" alt="Flèche gauche"></button>
         `;
         lightboxBG.classList.add('lightbox_modal');
         lightboxBG.innerHTML = selectedItem;
@@ -129,14 +129,14 @@ class LightboxModal {
         lightboxhtmlmodal.style.display = "none";
     }
 
-    eventManager(){
-        document.querySelector(".lightbox_next")
+    async eventManager(){
+        document.querySelector("#lightBoxNext")
                 .addEventListener('click', () => {this.next();
                 console.log("next");
             });
-        document.querySelector(".lightbox_prev")
+        document.querySelector("#lightBoxPrev")
                 .addEventListener('click', () => {this.previous()});
-        document.querySelector(".lightbox_close")
+        document.querySelector("#lightBoxClose")
                 .addEventListener('click', () => {this.close()});
     }
 
