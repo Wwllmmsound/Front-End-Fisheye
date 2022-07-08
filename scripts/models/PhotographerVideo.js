@@ -18,7 +18,7 @@ class PhotographerVideo {
         figure.classList.add('video_section')
             // html video 
         const photographerPhoto = `
-        <video controls>
+        <video>
             <source src="../assets/photographers/${this._name}/${this.media.video}" 
             alt="${this.media.title}" aria-label="Video" type="video/mp4" id=${this.media.imageId} class="item">
         </video>
