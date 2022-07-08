@@ -77,8 +77,8 @@ class LightboxModal {
 
   close() {
     // Reset le media ID
-    this._media = null;
-    console.log(this._media);
+    this.currentMedia.imageId = null;
+    console.log(this.currentMedia.imageId);
     lightboxhtmlmodal.setAttribute("aria-hidden", "true");
     lightboxhtmlmodal.style.display = "none";
   }
@@ -94,6 +94,19 @@ class LightboxModal {
     document.querySelector("#lightBoxClose").addEventListener("click", () => {
       this.close();
     });
+    document.addEventListener("keyup", (e) => {
+      switch(e.key){
+        case "ArrowRight":
+          this.next();
+        break;
+        case "ArrowLeft":
+          this.previous();
+        break;
+        case "Escape":
+          this.close();
+        break;
+      }
+    })
   }
 
   async displayModal(idMedia, medias, name) {
