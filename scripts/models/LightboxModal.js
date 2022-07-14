@@ -18,9 +18,9 @@ class LightboxModal {
   lightboxDisplay() {
     const lightboxBG = document.createElement("div");
     const selectedItem = `
-            <button class="lightbox_close" id="lightBoxClose"><img src="../assets/icons/close.svg" alt="Fermer Modale"></button>
-            <button class="lightbox_next" id="lightBoxNext" alt="Flèche Droite"></button>
-            <button class="lightbox_prev" id="lightBoxPrev" alt="Flèche gauche"></button>
+            <button class="lightbox_close" id="lightBoxClose" aria-label="Bouton de fermeture"><img src="../assets/icons/close.svg" alt="Fermer Modale"></button>
+            <button class="lightbox_next" id="lightBoxNext" alt="Flèche Droite" aria-label="Bouton image suivants"></button>
+            <button class="lightbox_prev" id="lightBoxPrev" alt="Flèche gauche" aria-label="Bouton image précédente"></button>
         `;
     lightboxBG.classList.add("lightbox_modal");
     lightboxBG.innerHTML = selectedItem;
@@ -77,7 +77,8 @@ class LightboxModal {
 
   close() {
     // Reset le media ID
-    this.currentMedia.imageId = null;
+    document.querySelector("div.lightbox_bground")
+            .removeChild(document.querySelector(".lightbox_modal"));
     console.log(this.currentMedia.imageId);
     lightboxhtmlmodal.setAttribute("aria-hidden", "true");
     lightboxhtmlmodal.style.display = "none";
