@@ -147,7 +147,6 @@ class PhotographerMedia {
         pictures.forEach((element) => {
           element.addEventListener("click", async (e) => {
             console.log(e.target.id);
-            e.preventDefault();
             const background = document.getElementById("lightboxModal");
             background.style.display = "block";
             background.setAttribute("aria-hidden", "false");
@@ -155,9 +154,7 @@ class PhotographerMedia {
             let photographerName = await this.getPhotographerNameById();
             console.log(photographerName);
             let mediaId = e.target.id;
-            console.log(mediaId);
             let lightbox = new LightboxModal(medias, photographerName);
-            console.log(lightbox);
             lightbox.displayModal(mediaId, medias, photographerName);
             });
         });
