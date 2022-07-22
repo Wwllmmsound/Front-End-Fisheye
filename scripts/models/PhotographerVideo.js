@@ -1,6 +1,5 @@
-import { PhotographerMedia } from './PhotographerMedia.js'
-
 const videoSection = document.querySelector("video");
+
 class PhotographerVideo {
 
 

@@ -15,6 +15,18 @@ function closeModal() {
 }
 
 function sendMessage(){
-    document.getElementById("sendModal").addEventListener("click", (e) => {e.preventDefault()})
-    closeModal();
+    const submit = document.getElementById("sendModal");
+    const first = document.getElementById("first");
+    const last = document.getElementById("last");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    submit.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(first.innerText);
+        console.log(last.innerText);
+        console.log(email.innerText);
+        console.log(message.innerText);
+        closeModal();
+    })
 }
