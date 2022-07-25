@@ -111,9 +111,9 @@ class LightboxModal {
   }
 
   async displayModal(idMedia, medias, name) {
+    console.log(name);
     this.currentMedia = this.getMediaById(idMedia, medias);
     console.log(this.currentMedia);
-    console.log(idMedia);
     const image = `<img src="../assets/photographers/${name}/${this.currentMedia.image}"
         alt="${this.currentMedia.title}" aria-label="Photo" id=${this.currentMedia.imageId} class="item">`;
     const video = `<video controls>

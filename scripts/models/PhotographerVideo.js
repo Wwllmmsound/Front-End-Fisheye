@@ -9,6 +9,7 @@ class PhotographerVideo {
         this._image = this.media.image,
         this._video = this.media.video,
         this.LikelistSubject = LikelistSubject
+
     }
 
     PhotographerVideoList() {
@@ -16,10 +17,10 @@ class PhotographerVideo {
         figure.classList.add('video_section')
             // html video 
         const photographerPhoto = `
-        <div class="item" id=${this.media.imageId}>
+        <div class="item">
         <video>
             <source src="../assets/photographers/${this._name}/${this.media.video}" 
-            alt="${this.media.title}" aria-label="Video" id=${this.media.imageId}>
+            alt="${this.media.title}" aria-label="Video" type="video/mp4" id=${this.media.imageId}>
         </video>
         </div>
             <figcaption class="photo-info" aria-label="Information sur la photo">

@@ -68,6 +68,7 @@ class PhotographerMedia {
         this._name = name
     }
 
+
     // ________________________FUNCTION CREATING THE PHOTOS GRID______________________
 
 
@@ -146,7 +147,6 @@ class PhotographerMedia {
         pictures.forEach((element) => {
           element.addEventListener("click", async (e) => {
             console.log(e.target.id);
-            console.log(e.target.getAttribute("id"));
             const background = document.getElementById("lightboxModal");
             background.style.display = "block";
             background.setAttribute("aria-hidden", "false");
@@ -154,7 +154,6 @@ class PhotographerMedia {
             let photographerName = await this.getPhotographerNameById();
             console.log(photographerName);
             let mediaId = e.target.id;
-            console.log(mediaId)
             let lightbox = new LightboxModal(medias, photographerName);
             lightbox.displayModal(mediaId, medias, photographerName);
             });
