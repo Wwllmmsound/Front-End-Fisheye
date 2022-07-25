@@ -17,12 +17,10 @@ class PhotographerVideo {
         figure.classList.add('video_section')
             // html video 
         const photographerPhoto = `
-        <div class="item">
         <video>
             <source src="../assets/photographers/${this._name}/${this.media.video}" 
-            alt="${this.media.title}" aria-label="Video" type="video/mp4" id=${this.media.imageId}>
+            alt="${this.media.title}" aria-label="Video" type="video/mp4" id=${this.media.imageId} class="item">
         </video>
-        </div>
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div class="like-container like-button">
