@@ -12,8 +12,6 @@ class MediaFactory {
             throw 'Unknown type format'
         };
     }
-
-    
 }
 
 export { MediaFactory };

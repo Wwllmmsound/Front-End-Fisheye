@@ -37,7 +37,6 @@ class PhotographerVideo {
   }
 
   displayCard(media) {
-    console.log("create video 2");
     const videoList = this.PhotographerVideoList(media);
     const videoSection = document.querySelector(".photos-list");
     videoSection.appendChild(videoList);
