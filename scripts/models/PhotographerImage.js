@@ -1,16 +1,15 @@
 class PhotographerImage {
+  constructor(name, element, LikelistSubject) {
+    this.media = element;
+    this._name = name;
+    this._image = this.media.image;
+    this.LikelistSubject = LikelistSubject;
+  }
 
-    constructor(name, element, LikelistSubject) {
-        this.media = element;
-        this._name = name;
-        this._image = this.media.image;
-        this.LikelistSubject = LikelistSubject
-    }
+  PhotographerPhotoList() {
+    const figure = document.createElement("figure");
 
-    PhotographerPhotoList() {
-        const figure = document.createElement("figure");
-
-        const photographerPhoto = `
+    const photographerPhoto = `
         <img src="../assets/photographers/${this._name}/${this._image}"
         alt="${this.media.title}" aria-label="Photo" id=${this.media.imageId} class="item">
             <figcaption class="photo-info" aria-label="Information sur la photo">
@@ -21,17 +20,16 @@ class PhotographerImage {
             </div>
         </figcaption>
     `;
-        figure.innerHTML = photographerPhoto;
-        return figure;
-    }
+    figure.innerHTML = photographerPhoto;
+    return figure;
+  }
 
-    displayCard(media) {
-        const photosList = this.PhotographerPhotoList(media);
-          const photosSection = document.querySelector("#photosList");
+  displayCard(media) {
+    const photosList = this.PhotographerPhotoList(media);
+    const photosSection = document.querySelector("#photosList");
 
-        photosSection.appendChild(photosList);
-
-    }
+    photosSection.appendChild(photosList);
+  }
 }
 
-export { PhotographerImage }
+export { PhotographerImage };

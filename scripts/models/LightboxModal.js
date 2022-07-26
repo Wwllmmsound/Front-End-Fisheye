@@ -50,12 +50,12 @@ class LightboxModal {
       this.currentMedia = this._media[0];
       this.setCurrentMedia(this._media[0]);
     } else {
-        this.currentMedia = this._media[nextIndex + 1];
-        this.setCurrentMedia(this._media[nextIndex + 1]);
-        console.log(this.currentMedia);
-      }
-      this.secondDisplay();
+      this.currentMedia = this._media[nextIndex + 1];
+      this.setCurrentMedia(this._media[nextIndex + 1]);
+      console.log(this.currentMedia);
     }
+    this.secondDisplay();
+  }
 
   previous() {
     let prevIndex = this._media.findIndex(
@@ -68,17 +68,19 @@ class LightboxModal {
       this.currentMedia = this._media[this._media.length - 1];
       this.setCurrentMedia(this._media[this._media.length - 1]);
     } else {
-        this.currentMedia = this._media[prevIndex - 1];
-        this.setCurrentMedia(this._media[prevIndex - 1]);
-        console.log(this.currentMedia);
-      }
-      this.secondDisplay();
+      this.currentMedia = this._media[prevIndex - 1];
+      this.setCurrentMedia(this._media[prevIndex - 1]);
+      console.log(this.currentMedia);
+    }
+    this.secondDisplay();
   }
 
   close() {
     // Reset le media ID
-    document.querySelector("div.lightbox_bground")
-            .removeChild(document.querySelector(".lightbox_modal"));
+    console.log("clode modale");
+    document
+      .querySelector("div.lightbox_bground")
+      .removeChild(document.querySelector(".lightbox_modal"));
     console.log(this.currentMedia.imageId);
     lightboxhtmlmodal.setAttribute("aria-hidden", "true");
     lightboxhtmlmodal.style.display = "none";
@@ -96,36 +98,34 @@ class LightboxModal {
       this.close();
     });
     document.addEventListener("keyup", (e) => {
-      switch(e.key){
+      switch (e.key) {
         case "ArrowRight":
           this.next();
-        break;
+          break;
         case "ArrowLeft":
           this.previous();
-        break;
+          break;
         case "Escape":
           this.close();
-        break;
+          break;
       }
-    })
+    });
   }
 
   async displayModal(idMedia, medias, name) {
-    console.log(name);
     this.currentMedia = this.getMediaById(idMedia, medias);
     console.log(this.currentMedia);
-    const image = `<img src="../assets/photographers/${name}/${this.currentMedia.image}"
-        alt="${this.currentMedia.title}" aria-label="Photo" id=${this.currentMedia.imageId} class="item">`;
-    const video = `<video controls>
-        <source src="../assets/photographers/${name}/${this.currentMedia.video}" 
-        alt="${this.currentMedia.title}" aria-label="Video" type="video/mp4" id=${this.currentMedia.imageId} class="item">
-    </video>`;
+    console.log(idMedia);
+
     const display = new MediaFactory(this.currentMedia, name);
     const div = document.createElement("div");
     div.classList.add("lightbox_container");
     const ligthBoxContainer = this.lightboxDisplay();
 
     if (this.currentMedia.video == undefined) {
+      const image = `<img src="../assets/photographers/${name}/${this.currentMedia.image}"
+      alt="${this.currentMedia.title}" aria-label="Photo" id=${this.currentMedia.imageId} class="item">`;
+
       let img = document.createElement("div");
       img.classList.add("lightbox-img");
       img.innerHTML = image;
@@ -133,6 +133,13 @@ class LightboxModal {
       div.appendChild(img);
       ligthBoxContainer.appendChild(div);
     } else {
+      console.log("create video");
+      const video = `  <a class="item" aria-label="blabla  la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
+      href="../assets/photographers/${this._name}/${this.currentMedia.video}" id=${this.currentMedia.imageId}>
+     <video  autoplay>
+         <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
+         alt="${this.currentMedia.title}" aria-label="Video" id=${this.currentMedia.imageId}>
+     </video>`;
       const mp4 = document.createElement("div");
       mp4.classList.add("lightbox-img");
       mp4.innerHTML = video;
@@ -158,7 +165,7 @@ class LightboxModal {
     div.classList.add("lightbox_container");
     console.log(this.currentMedia);
     if (this.currentMedia.video === undefined) {
-        const image = `<img src="../assets/photographers/${this._name}/${this.currentMedia.image}"
+      const image = `<img src="../assets/photographers/${this._name}/${this.currentMedia.image}"
         alt="${this.currentMedia.title}" aria-label="Photo" id=${this.currentMedia.imageId} class="item">`;
       let img = document.createElement("div");
       img.classList.add("lightbox-img");
@@ -166,10 +173,19 @@ class LightboxModal {
       div.appendChild(img);
       modal.appendChild(div);
     } else {
-        const video = `<video controls>
-        <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
-        alt="${this.currentMedia.title}" aria-label="Video" type="video/mp4" id=${this.currentMedia.imageId} class="item">
-        </video>`;
+      const video = `  <a class="item" aria-label="blabla de la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
+      href="../assets/photographers/${this._name}/${this.currentMedia.video}" id=${this.currentMedia.imageId}>
+     <video autoplay>
+         <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
+         alt="${this.currentMedia.title}" aria-label="Video" id=${this.currentMedia.imageId}>
+     </video>`;
+      console.log(this.currentMedia.video);
+
+      console.log(this.currentMedia.title);
+
+      console.log(this.currentMedia.imageId);
+
+      console.log(video);
       const mp4 = document.createElement("div");
       mp4.classList.add("lightbox-img");
       mp4.innerHTML = video;
