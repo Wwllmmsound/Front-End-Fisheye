@@ -15,6 +15,6 @@ function closeModal() {
 }
 
 function sendMessage(){
-    document.getElementById("sendModal").addEventListener("click", (e) => {e.preventDefault()})
+    document.querySelector("#contactForm").addEventListener("click", (e) => {e.preventDefault()})
     closeModal();
 }

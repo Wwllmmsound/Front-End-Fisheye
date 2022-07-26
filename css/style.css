@@ -492,6 +492,12 @@ main .photos-list figure .photo-info .like-container i {
           justify-content: center;
 }
 
+.lightbox_bground .lightbox_modal .video-lightbox {
+  max-width: 90vw;
+  max-height: 98vh;
+  margin-top: 1%;
+}
+
 @-webkit-keyframes lightboxIn {
   from {
     opacity: 0;

@@ -136,7 +136,7 @@ class LightboxModal {
       console.log("create video");
       const video = `  <a class="item" aria-label="blabla  la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
       href="../assets/photographers/${this._name}/${this.currentMedia.video}" id=${this.currentMedia.imageId}>
-     <video  autoplay>
+     <video autoplay class="video-lightbox">
          <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
          alt="${this.currentMedia.title}" aria-label="Video" id=${this.currentMedia.imageId}>
      </video>`;
@@ -173,9 +173,9 @@ class LightboxModal {
       div.appendChild(img);
       modal.appendChild(div);
     } else {
-      const video = `  <a class="item" aria-label="blabla de la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
+      const video = `<a class="item" aria-label="blabla de la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
       href="../assets/photographers/${this._name}/${this.currentMedia.video}" id=${this.currentMedia.imageId}>
-     <video autoplay>
+     <video autoplay class="video-lightbox">
          <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
          alt="${this.currentMedia.title}" aria-label="Video" id=${this.currentMedia.imageId}>
      </video>`;

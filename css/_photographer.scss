@@ -353,7 +353,12 @@ main{
             display: flex;
             align-items: center;
             justify-content: center;
-        }    
+        }
+        .video-lightbox{
+            max-width: 90vw;
+            max-height: 98vh;
+            margin-top: 1%;
+        }
     }   
 }
 
