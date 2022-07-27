@@ -60,15 +60,14 @@
 			  <div class="modal" role="document">
                 <header aria-label="Titre du Modal">
                     <h2>Contactez-moi</h2>
-                    <img src="../assets/icons/close.svg" onclick="closeModal()" />
+                    <img src="../assets/icons/close.svg" onclick="closeModal()"/>
                 </header>
             <form
               name="reserve"
-              action="index.html"
               method="get"
               aria-label="Formulaire de contacte"
               role="Contacter le Photographe"
-              onsubmit="sendMessage()"
+              id="contactForm"
             >
               <div class="formData">
                 <label for="first">Prénom</label>
@@ -114,7 +113,7 @@
                     aria-label="Votre message"></textarea>
               </div>
               <button class="contact_button" aria-label="Envoye du formulaire" 
-                      role="Envoyer le message" id="sendModal">Envoyer</button>
+                      role="Envoyer le message" id="contactPhotographer">Envoyer</button>
             </form>
           </div>
       </div>
