@@ -153,8 +153,8 @@ class PhotographerMedia {
         this.setImage(media._image);
       }
       display.displayCard();
-      likesCounter();
     }
+    likesCounter();
   }
 
   async displayligthBox() {
