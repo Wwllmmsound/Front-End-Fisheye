@@ -134,12 +134,13 @@ class LightboxModal {
       ligthBoxContainer.appendChild(div);
     } else {
       console.log("create video");
-      const video = `  <a class="item" aria-label="blabla  la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
+      const video = `<div class="item" aria-label="Video de ${this.currentMedia.title}, cliquer pour ouvrir la lightbox"
       href="../assets/photographers/${this._name}/${this.currentMedia.video}" id=${this.currentMedia.imageId}>
      <video autoplay class="video-lightbox">
          <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
          alt="${this.currentMedia.title}" aria-label="Video" id=${this.currentMedia.imageId}>
-     </video>`;
+     </video>
+     </div>`;
       const mp4 = document.createElement("div");
       mp4.classList.add("lightbox-img");
       mp4.innerHTML = video;
@@ -173,12 +174,13 @@ class LightboxModal {
       div.appendChild(img);
       modal.appendChild(div);
     } else {
-      const video = `<a class="item" aria-label="blabla de la video ${this.currentMedia.title} cliquer pour ouvrir la lightbox"
+      const video = `<div class="item" aria-label="Video de ${this.currentMedia.title}, cliquer pour ouvrir la lightbox"
       href="../assets/photographers/${this._name}/${this.currentMedia.video}" id=${this.currentMedia.imageId}>
      <video autoplay class="video-lightbox">
          <source src="../assets/photographers/${this._name}/${this.currentMedia.video}" 
          alt="${this.currentMedia.title}" aria-label="Video" id=${this.currentMedia.imageId}>
-     </video>`;
+     </video>
+     </div>`;
       console.log(this.currentMedia.video);
 
       console.log(this.currentMedia.title);
