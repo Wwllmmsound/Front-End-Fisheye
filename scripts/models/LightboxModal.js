@@ -20,7 +20,7 @@ class LightboxModal {
     lightboxBG.classList.add("lightbox_modal");
     const selectedItem = `
             <button class="lightbox_close" id="lightBoxClose" aria-label="Bouton de fermeture"><img src="../assets/icons/close.svg" alt="Fermer Modale"></button>
-            <button class="lightbox_next" id="lightBoxNext" alt="Flèche Droite" aria-label="Bouton image suivants"></button>
+            <button class="lightbox_next" id="lightBoxNext" alt="Flèche Droite" aria-label="Bouton image suivante"></button>
             <button class="lightbox_prev" id="lightBoxPrev" alt="Flèche gauche" aria-label="Bouton image précédente"></button>
         `;
     lightboxBG.innerHTML = selectedItem;
@@ -37,9 +37,6 @@ class LightboxModal {
 
   // Gestion de la navigation lightbox
   next() {
-    console.log("_media", this._media);
-    console.log("this.currentMedia.imageId", this.currentMedia);
-
     let nextIndex = this._media.findIndex(
       (element) => element.imageId == this.currentMedia.imageId
     );
@@ -82,7 +79,7 @@ class LightboxModal {
     lightboxhtmlmodal.style.display = "none";
   }
 
-  async eventManager() {
+  eventManager() {
     document.querySelector("#lightBoxNext").addEventListener("click", () => {
       this.next();
       console.log("next");

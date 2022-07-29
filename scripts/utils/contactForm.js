@@ -11,7 +11,7 @@ let nameOk = false;
 let surnameOk = false;
 let emailOk = false;
 
-function displayModal() {
+function displayForm() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
     const modalBg = document.querySelector(".bground");
