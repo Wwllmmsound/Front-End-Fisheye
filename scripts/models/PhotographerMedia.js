@@ -145,9 +145,6 @@ class PhotographerMedia {
     pictures.forEach((element) => {
       element.addEventListener("click", async (e) => {
         e.preventDefault();
-        console.log(element.getAttribute("id"));
-        console.log(e.target.attributes.id);
-        console.log(e.target.getAttribute("id"));
         const background = document.getElementById("lightboxModal");
         background.style.display = "block";
         background.setAttribute("aria-hidden", "false");

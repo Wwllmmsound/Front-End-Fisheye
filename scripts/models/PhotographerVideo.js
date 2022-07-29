@@ -15,15 +15,13 @@ class PhotographerVideo {
     figure.classList.add("video_section");
     // html video
     const photographerPhoto = `
-       
-        <a class="item" aria-label="blabla la video ${this.media.title} cliquer pour ouvrir la lightbox"
+        <a class="item" aria-label="Video de ${this.media.title}, cliquer pour ouvrir la lightbox"
          href="../assets/photographers/${this._name}/${this.media.video}" id=${this.media.imageId}>
         <video autoplay>
             <source src="../assets/photographers/${this._name}/${this.media.video}" 
             alt="${this.media.title}" aria-label="Video" id=${this.media.imageId}>
         </video >
         </a>
-       
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
             <div class="like-container like-button">
