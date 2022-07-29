@@ -46,7 +46,6 @@ class LightboxModal {
 
     console.log(nextIndex == this._media.length + 1);
     if (nextIndex === this._media.length - 1) {
-      console.log("we are here******");
       this.currentMedia = this._media[0];
       this.setCurrentMedia(this._media[0]);
     } else {
@@ -64,7 +63,6 @@ class LightboxModal {
 
     console.log(prevIndex == this._media.length + 1);
     if (prevIndex === 0) {
-      console.log("we are here******");
       this.currentMedia = this._media[this._media.length - 1];
       this.setCurrentMedia(this._media[this._media.length - 1]);
     } else {

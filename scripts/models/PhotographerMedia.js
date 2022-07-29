@@ -140,23 +140,6 @@ class PhotographerMedia {
     return tab;
   }
 
-  async initMediaDisplay(medias, name) {
-    const photosSection = document.querySelector("#photosList");
-
-    let tabMedia = await medias;
-
-    for (let media of tabMedia) {
-      const display = new MediaFactory(media, name);
-      if (media._video != undefined) {
-        this.setVideo(media._video);
-      } else {
-        this.setImage(media._image);
-      }
-      display.displayCard();
-    }
-    likesCounter();
-  }
-
   async displayligthBox() {
     const pictures = document.querySelectorAll(".item");
     pictures.forEach((element) => {
@@ -177,6 +160,24 @@ class PhotographerMedia {
         lightbox.displayModal(mediaId, medias, photographerName);
       });
     });
+  }
+
+  async initMediaDisplay(medias, name) {
+    const photosSection = document.querySelector("#photosList");
+
+    let tabMedia = await medias;
+
+    for (let media of tabMedia) {
+      const display = new MediaFactory(media, name);
+      if (media._video != undefined) {
+        this.setVideo(media._video);
+      } else {
+        this.setImage(media._image);
+      }
+      display.displayCard();
+    }
+    likesCounter();
+    this.displayligthBox();
   }
 
   async init() {

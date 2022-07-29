@@ -2,6 +2,7 @@ import { PhotographerApi } from '../api/Api.js';
 import { PhotographerMedia } from '../models/PhotographerMedia.js';
 import { MediaFactory } from '../factory/MediaFactory.js';
 import { SortFactory } from '../factory/SortFactory.js';
+import { LightboxModal } from '../models/LightboxModal.js';
 
 export function sortingBy(){
     const photographersApi = new PhotographerApi('../data/photographers.json');
@@ -12,14 +13,11 @@ export function sortingBy(){
 
     // renvoie tous les médias pour le photographe demandé
 
-
-
     options.addEventListener("input", (event) =>{
         var id_ =  document.getElementById("orderBy").id;
         var text_ = document.getElementById("orderBy").value;
         let name;
         let medias = sorting(event.target.value);
-
 
         photographerMedia_.getPhotographerNameById(photographerMedia_.id)
 
@@ -27,9 +25,6 @@ export function sortingBy(){
                 name=res;
                 photographerMedia_.initMediaDisplay(medias,name);
             });
-
-
-
             console.log("click",text_);
             console.log(medias);
 
@@ -38,10 +33,7 @@ export function sortingBy(){
     });
 
    // selectionne l'ordre d'affichage des médias
-
-
     async function sorting(text_) {
-
 
     // vide le conteneur de médias
     mediaContainer.innerHTML = '';
@@ -54,15 +46,12 @@ export function sortingBy(){
         switch (text_) {
             case 'popular':
                 return med.sort(function(a, b) {
-
                     console.log("Sorted by number of Likes");
-
                     return b.likes - a.likes });
                 break;
 
             case 'date':
                 return med.sort(function(a, b){
-
                     console.log("Sorted by Date");
                     return new Date(b.date) - new Date(a.date)
                         });
