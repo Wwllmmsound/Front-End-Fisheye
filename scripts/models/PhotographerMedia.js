@@ -140,25 +140,6 @@ class PhotographerMedia {
     return tab;
   }
 
-  async displayligthBox() {
-    const pictures = document.querySelectorAll(".item");
-    pictures.forEach((element) => {
-      element.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const background = document.getElementById("lightboxModal");
-        background.style.display = "block";
-        background.setAttribute("aria-hidden", "false");
-        const medias = await this.getMediaByPhotographer();
-        let photographerName = await this.getPhotographerNameById();
-        console.log(photographerName);
-        let mediaId = element.getAttribute("id");
-        console.log(mediaId);
-        let lightbox = new LightboxModal(medias, photographerName);
-        lightbox.displayModal(mediaId, medias, photographerName);
-      });
-    });
-  }
-
   async initMediaDisplay(medias, name) {
     const photosSection = document.querySelector("#photosList");
 
@@ -175,6 +156,26 @@ class PhotographerMedia {
     }
     likesCounter();
     this.displayligthBox();
+  }
+
+  async displayligthBox() {
+    const pictures = document.querySelectorAll(".item");
+    console.log("123456789")
+    pictures.forEach((element) => {
+      element.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const background = document.getElementById("lightboxModal");
+        background.style.display = "block";
+        background.setAttribute("aria-hidden", "false");
+        const medias = await this.getMediaByPhotographer();
+        let photographerName = await this.getPhotographerNameById();
+        console.log(photographerName);
+        let mediaId = element.getAttribute("id");
+        console.log(mediaId);
+        let lightbox = new LightboxModal(medias, photographerName);
+        lightbox.displayModal(mediaId, medias, photographerName);
+      });
+    });
   }
 
   async init() {

@@ -20,7 +20,6 @@ export function sortingBy(){
         let medias = sorting(event.target.value);
 
         photographerMedia_.getPhotographerNameById(photographerMedia_.id)
-
             .then((res)=>{
                 name=res;
                 photographerMedia_.initMediaDisplay(medias,name);

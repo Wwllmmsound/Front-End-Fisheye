@@ -4,7 +4,7 @@ const lightboxhtmlmodal = document.querySelector(".lightbox_bground");
 
 class LightboxModal {
   constructor(media, name) {
-    this.currentMedia = [];
+    this.currentMedia = {};
     this._name = name;
     this._media = media;
   }
@@ -47,6 +47,7 @@ class LightboxModal {
       this.currentMedia = this._media[nextIndex + 1];
       this.setCurrentMedia(this._media[nextIndex + 1]);
       console.log(this.currentMedia);
+      console.log(nextIndex);
     }
     this.secondDisplay();
   }
@@ -90,19 +91,19 @@ class LightboxModal {
     document.querySelector("#lightBoxClose").addEventListener("click", () => {
       this.close();
     });
-    document.addEventListener("keyup", (e) => {
-      switch (e.key) {
-        case "ArrowRight":
-          this.next();
-          break;
-        case "ArrowLeft":
-          this.previous();
-          break;
-        case "Escape":
-          this.close();
-          break;
-      }
-    });
+    // document.addEventListener("keyup", (e) => {
+    //   switch (e.key) {
+    //     case "ArrowRight":
+    //       this.next();
+    //       break;
+    //     case "ArrowLeft":
+    //       this.previous();
+    //       break;
+    //     case "Escape":
+    //       this.close();
+    //       break;
+    //   }
+    // });
   }
 
   async displayModal(idMedia, medias, name) {
@@ -188,7 +189,7 @@ class LightboxModal {
       div.appendChild(mp4);
       modal.appendChild(div);
     }
-    this.eventManager();
+    // this.eventManager();
   }
 }
 
