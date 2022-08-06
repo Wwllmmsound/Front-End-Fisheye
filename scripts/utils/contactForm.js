@@ -76,4 +76,25 @@ contactForm.addEventListener("submit", function (e){
       }        
 });
 
+  // Gestion de la navigation contact form
 
+const userInfo = [first, last, email, message];
+
+//  function next() {
+//     for (let i = 0; i < userInfo.length; i++) {
+//       userInfo[i].scrollIntoView();
+//     } 
+//   }
+//   function previous() {
+//     for (let i = userInfo.length; i > 0; i--) {
+//       userInfo[i].scrollIntoView();
+//     } 
+//   }
+
+document.addEventListener("keyup", (e) => {
+  switch (e.key) {
+    case "Escape":
+      closeModal();
+      break;
+  }
+});

@@ -13,7 +13,7 @@ class PhotographerImage {
       <a class="item" aria-label="Image de ${this.media.title}, cliquer pour ouvrir la lightbox"
          href="../assets/photographers/${this._name}/${this.media.image}" id=${this.media.imageId}>
         <img src="../assets/photographers/${this._name}/${this._image}"
-        alt="${this.media.title}" aria-label="Photo" id=${this.media.imageId} class="item">
+        alt="${this.media.title}" aria-label="Photo" id=${this.media.imageId}>
       </a>
             <figcaption class="photo-info" aria-label="Information sur la photo">
             <p class="photo-title" aria-label="Titre de la photo">${this.media.title}</p>
