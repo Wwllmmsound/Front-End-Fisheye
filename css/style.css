@@ -367,7 +367,7 @@ main .photos-list figure .photo-info .like-container .like-button {
   width: 60px;
   height: 30px;
   border: none;
-  background-color: #FAFAFA;
+  background-color: white;
 }
 
 main .photos-list figure .photo-info .like-container i {
