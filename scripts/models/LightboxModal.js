@@ -46,9 +46,8 @@ class LightboxModal {
     } else {
       this.currentMedia = this._media[nextIndex + 1];
       this.setCurrentMedia(this._media[nextIndex + 1]);
-      console.log(this.currentMedia);
-      console.log(nextIndex);
     }
+    console.log(nextIndex);
     this.secondDisplay();
   }
 
@@ -64,8 +63,8 @@ class LightboxModal {
     } else {
       this.currentMedia = this._media[prevIndex - 1];
       this.setCurrentMedia(this._media[prevIndex - 1]);
-      console.log(this.currentMedia);
     }
+    console.log(prevIndex);
     this.secondDisplay();
   }
 
@@ -83,7 +82,6 @@ class LightboxModal {
   eventManager() {
     document.querySelector("#lightBoxNext").addEventListener("click", () => {
       this.next();
-      console.log("next");
     });
     document.querySelector("#lightBoxPrev").addEventListener("click", () => {
       this.previous();
@@ -146,14 +144,12 @@ class LightboxModal {
     console.log(ligthBoxContainer);
     console.log(lightboxhtmlmodal);
     lightboxhtmlmodal.appendChild(ligthBoxContainer);
-    // lightboxhtmlmodal.classList.add("active");
     lightboxhtmlmodal.setAttribute("aria-hidden", "false");
     lightboxhtmlmodal.style.display = "block";
     this.eventManager();
   }
 
   async secondDisplay() {
-    // this.currentMedia = this.getMediaById();
     const modal = document.querySelector(".lightbox_modal");
     modal.removeChild(document.querySelector(".lightbox_container"));
     const div = document.createElement("div");

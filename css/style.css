@@ -25,7 +25,7 @@
   display: none;
   position: fixed;
   z-index: 4;
-  left: 0;
+  left: 0px;
   top: 0;
   height: 100%;
   width: 100%;
@@ -305,7 +305,6 @@ main .photos-list figure img {
   margin-bottom: 10px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 10 100px;
   border-radius: 8px;
 }
 
@@ -315,7 +314,6 @@ main .photos-list figure video {
   margin-bottom: 10px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 10 100px;
   border-radius: 8px;
 }
 
@@ -518,7 +516,7 @@ main .photos-list figure .photo-info .like-container i {
 
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+  margin: 0px;
 }
 
 header {
@@ -596,7 +594,7 @@ h1 {
 .photographer_section article a h2 {
   color: #D3573C;
   font-size: 30px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 .photographer_section article a img {
@@ -620,8 +618,8 @@ h1 {
 }
 
 .photographer_section article p {
-  margin-top: 0;
-  padding-top: 0;
+  margin-top: 0px;
+  padding-top: 0px;
   margin-bottom: 4px;
   font-size: 14px;
 }

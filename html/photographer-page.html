@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" dir="ltr">
   <head>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,8 +10,8 @@
   </head>
   <body>
     <header>
-        <a href="index.html" class="logo" role="Retour à la page principale">
-          <img src="../assets/images/logo.png" />
+        <a href="index.html" class="logo" aria-label="Lien vers la page principale">
+          <img src="../assets/images/logo.png" alt="logo du site"/>
         </a>
     </header>
       <aside class="photograph-header" aria-label="Description du photographe">
@@ -19,18 +19,18 @@
           </div>
           <div class="photograph-contact">
                <button class="contact_button" 
-                onclick="displayForm()" 
+                onclick="displayForm()"
                 aria-label="Bouton pour afficher le modal de contacte du photographe" 
-                role="Ouvre la modal de contacte">Contactez-moi</button>
+                >Contactez-moi</button>
           </div>
           <div id="photographerProfilPic" aria-label="Photo de profile du photographe">
           </div>         
       </aside>
       <main>
-        <div class="preferences" alt="Trier les photos">
+        <div class="preferences" aria-label="Trier les photos">
           <label for="orderBy">Trier par</label>
           <select name="orderBy" id="orderBy" class="orderBy" 
-            aria-label="Trie des photos" role="Trier les photos">
+            aria-label="Trie des photos">
               <option value="popular" id="selectPopular">Popularité</option>
               <option value="date" id="selectDate">Date</option>
               <option value="title" id="selectTitle">Titre</option>
@@ -43,9 +43,7 @@
     <!-- ____________________________________daily_price_________________________________ -->
 
     <div class="hourly-price"
-         alt="Nombre de like et prix par heures"
          aria-label="Nombre de like et prix par heures"
-         role="Informe sur le nombre de likes et le prix"
          id="hourlyPrice">
     </div>
 
@@ -60,13 +58,12 @@
 			  <div class="modal" role="document">
                 <header aria-label="Titre du Modal">
                     <h2>Contactez-moi</h2>
-                    <img src="../assets/icons/close.svg" onclick="closeModal()"/>
+                    <img src="../assets/icons/close.svg" alt="icone de fermeture du modal" onclick="closeModal()"/>
                 </header>
             <form
               name="reserve"
               method="get"
               aria-label="Formulaire de contacte"
-              role="Contacter le Photographe"
               id="contactForm"
             >
               <div class="formData">
@@ -113,7 +110,7 @@
                     aria-label="Votre message"></textarea>
               </div>
               <button class="contact_button" aria-label="Envoye du formulaire" 
-                      role="Envoyer le message" id="contactPhotographer">Envoyer</button>
+                      id="contactPhotographer">Envoyer</button>
             </form>
           </div>
       </div>
