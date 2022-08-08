@@ -30,7 +30,7 @@ class PhotographerPage extends PhotographerModel {
         const photographerHeader = `
             <h1 class="profile_name"
             aria-label="Nom du photographe">${photographer.name}</h1>
-            <h3 class="profile_origine"
+            <h2 class="profile_origine"
             aria-label="Ville du photographe">${photographer.city}, ${photographer.country}</h3>
             <p class="profile_slogan"
             aria-label="Slogan du photographe">${photographer.tagline}</p>
